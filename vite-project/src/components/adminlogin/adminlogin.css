@@ -1,0 +1,40 @@
+.screen2 {		
+
+	background: linear-gradient(90deg, #363795,#005c97);	
+	position: relative;	
+	height:410px;
+	width: 450px;	
+	border-radius: 10px;
+	box-shadow: 0px 0px 24px #cececf;
+}
+.link{
+    color: white;
+    text-decoration: none;
+    font-family: 'Italianno', cursive;
+    font-size: 30px;
+    font-weight: 800px;
+    word-spacing: 5px;
+}
+.link:hover{
+    color: white;
+}
+.link2{
+    color: black;
+    text-decoration: none;
+    font-family: 'Italianno', cursive;
+    font-size: 19px;
+    font-weight: 700;
+}
+.link2:hover{
+    color: black;
+}
+.forget{
+    font-size: 18px;
+    font-family: 'Italianno', cursive;
+    word-spacing: 7px;
+}
+.login2 {
+	width: 320px;
+	padding: 30px;
+	padding-top: 50px;
+}
