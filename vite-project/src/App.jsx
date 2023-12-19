@@ -6,8 +6,10 @@ import Forgetadminusername from './components/forgetadminusername/Forgetadminuse
 import Forgetadminpassword from './components/forgetadminpassword/Forgetadminpassword'
 import Adminhome from './components/adminhome/Adminhome'
 import Category from './components/category/Category'
-import Products from './components/productes/Products'
+import Products from './components/products/Products'
 import Editcategory from './components/editcategory/Editcategory'
+import Home from './components/home/Home'
+import Userlogin from './components/userlogin/Userlogin'
 
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
      <Route path='/category' Component={Category}/>
      <Route path='/products' Component={Products}/>
      <Route path='/editcategory/:id' Component={Editcategory}/>
+     <Route path='/home' Component={Home}/>
+     <Route path='/userlogin' Component={Userlogin}/>
+
      
 
 

@@ -1,13 +1,13 @@
 import React, { useEffect,useState } from 'react'
 import axios from 'axios';
 import './adminhome.css'
-import { PiLineSegmentsThin } from "react-icons/pi";
-import { FaOpencart } from "react-icons/fa6";
-import { HiSquaresPlus } from "react-icons/hi2";
-import { BsAppIndicator } from "react-icons/bs";
+import { FcComboChart } from "react-icons/fc";
+import { FcTimeline } from "react-icons/fc";
+import { FcTodoList } from "react-icons/fc";
 import { TbLogout2 } from "react-icons/tb";
 import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
+import { FcPositiveDynamic } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -118,9 +118,9 @@ const Adminhome = () => {
         <img src="./download.png" alt="" />
       </div>
       <div className='adminnamemain'>
-       
+      <div onClick={logoutAdmin}><TbLogout2 /></div>
          <div className='adminname'>{user}</div>
-         <div onClick={logoutAdmin}><TbLogout2 /></div>
+         
       </div>
     </div> 
      <div className='main1'>
@@ -129,7 +129,7 @@ const Adminhome = () => {
         
 
         <div className='catogories'>
-            Catogories
+            Categories
         </div>
         {
             getCate.map((data,index)=>
@@ -169,22 +169,22 @@ const Adminhome = () => {
         <div className='main1content'>
            <div className='main1content2'>
               <div className='cards'>
-                 <div className='sales'><PiLineSegmentsThin /></div>
+                 <div className='sales'><FcPositiveDynamic /></div>
                  <div>sales</div>
               </div>
               <div className='cards'>
-                 <div className='orders'><FaOpencart /></div>
+                 <div className='orders'><FcComboChart /></div>
                  <div>orders</div>
               </div>
              <Link to={`/category`} className='link3'>
              <div className='cards'>
-              <div className='catogory'><HiSquaresPlus  cx="0"  /></div>
+              <div className='catogory'><FcTimeline /></div>
                  <div>add  category</div>
               </div>
              </Link>
               <Link to={`/products`} className='link3'>
               <div className='cards'>
-              <div className='products'><BsAppIndicator /></div>
+              <div className='products'><FcTodoList /></div>
                  <div>add  products</div>
               </div>
               </Link>
@@ -198,6 +198,7 @@ const Adminhome = () => {
             
         
      </div>
+
     </div>
   )
 }

@@ -1,12 +1,12 @@
 import React , {useState} from 'react'
 import './category.css'
-import { HiMiniSquaresPlus } from "react-icons/hi2";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcTimeline } from "react-icons/fc";
 
-const Category = () => {
+const Products = () => {
 
 
    
@@ -56,28 +56,31 @@ const Category = () => {
 
 
 
-
   return (
-    <div  className='body'>
-        <div className="courses-container">
-	<div className="course">
-		<div className="course-preview">
-            <div className='catogory2'> <HiMiniSquaresPlus /></div>
-            <div className='cathead'>Add Category</div>
-       
-		</div>
-		<div className="course-info">
-        <div className="login__field">
-					<i className="login__icon fas fa-user"></i>
-					<input type="text" className="login__input"  name='categoryname' onChange={getData} placeholder="Category Name "  />
-				</div>
-                <div className="login__field">
-					<i className="login__icon fas fa-user"></i>
-					<input type="text" className="login__input"  name='description' onChange={getData} placeholder="Description"  />
-				</div>
-			<div>
-            <button onClick={addData} className="btn1">Submit</button>
-            <ToastContainer 
+    <div >
+        <div className='cmain'>
+
+<div className="modal1">
+<form className="form">
+  <div className='head2'>
+  <div><FcTimeline /></div>
+  <div className='chead'> Add Category</div>
+  </div> 
+  
+  <div className="credit-card-info--form">
+    <div className="input_container">
+      <label  className="input_label">Category Name</label>
+      <input id="password_field" className="input_field" type="text" onChange={getData} name='categoryname' title="Inpit title" placeholder=""/>
+    </div>
+    <div className="input_container">
+      <label  className="input_label">Description</label>
+      <textarea className="input_field2"  id="" cols="30" name='description'  onChange={getData} rows="10"></textarea>
+     
+    </div>
+ 
+  </div>
+    <button onClick={addData} className="purchase--btn">Add</button>
+    <ToastContainer 
 				
 				position="top-right" 
 				autoClose={2500}
@@ -91,16 +94,13 @@ const Category = () => {
 				theme="dark"
 				
 				/>
-            </div>
-		</div>
-	</div>
+</form>
 </div>
-
-
-
-
+</div> 
     </div>
   )
 }
 
-export default Category
+export default Products
+
+

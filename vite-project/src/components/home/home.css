@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+.marquee{
+    background-color: red;
+}
+
+.navbar-main{
+    background-color: white;
+    /* height: 110px; */
+    border-bottom: 1px solid rgb(238, 237, 237);
+    padding: 30px;
+    display: flex;
+    
+
+}
+.navbarcontent{
+   
+    height: 50px;
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.snitchlogo img{
+    width: 40%;
+}
+.snitchlogo{
+    display: flex;
+    justify-content: center;
+    padding-left: 10%;
+   
+}
+.homeicons{
+    display: flex;
+    gap: 20px;
+    font-size: 25px;
+    color: black;
+    
+}
+.homebtn{
+    background-color: transparent;
+    border: none;
+}
+.offcanvas-start{
+    transition: 0.6s;
+    border: 1px solid rgb(247, 245, 245);
+    padding: 20px;
+    width:25% ;
+
+}
+.offcanvas-header2{
+    display: flex;
+    align-items: center;
+    font-size: 16px; 
+    gap: 10px;
+   
+    
+}
+.userlogo{
+    font-size: 18px; 
+    padding: 8px;
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+   
+}
+.userlogotext{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+   
+}
+.offcanvas-borderbottom{
+    border-bottom: 1px solid rgb(225, 222, 222);
+}
+.offcanvas-body-content{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+    font-size: 15px; 
+    letter-spacing: 1px;
+    padding: 18px 0px;
+}
+.offcanvas-body{
+    padding:0px;
+}
+.offcanvas-body-content2{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+    font-size: 15px; 
+    letter-spacing: 1px;
+}
+.offcanvas-body-content2main{
+    padding: 18px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.carousel-item img{
+    height: 580px;
+}
+
+.footer-top-border{
+    border-bottom: 1px solid rgb(225, 222, 222);
+    margin-top: 10%;
+}
+.footer1{
+    display: flex;
+    padding: 50px;
+    background-color: white;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+   
+}
+.footer-contents-head{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+    font-size: 14px; 
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    color: black;
+}
+.footer-content{
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 700;
+    font-size: 11px; 
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+    color: black;
+}
+.footer-contents{
+    width: 24%;
+}
+.footer-content a{
+    color: black;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+}
+.footer-border{
+    border-bottom: 1px solid rgb(225, 222, 222);
+    width: 100%;
+    display: none;
+
+}
+.copyright{
+    color: black;
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 800;
+    font-size: 12px; 
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 10%;
+}
+.link5{
+    color: black;
+    text-decoration: none;
+    font-family: 'Julius Sans One', sans-serif;
+
+}
+.link5:hover{
+    color: black;
+    
+}
+
+
+
+@media (min-width:300px) and (max-width:576px){
+
+
+	.offcanvas-start{
+       
+        width:55% ;
+    
+    }
+    .snitchlogo img{
+        width: 100px;
+        height: 35px;
+    }
+    .footer-contents{
+        width: 100%;
+        margin-bottom: 5%;
+        text-align: center;
+        
+    }
+    .footer-border{
+        margin-bottom: 5%;
+        display: block;
+    
+    }
+    .carousel-item img{
+        height: 300px;
+    }
+
+  }
+  @media (min-width:576px) and (max-width:768px){
+
+
+	.offcanvas-start{
+       
+        width:40% ;
+    
+    }
+    .footer-contents{
+        width: 50%;
+        margin-bottom: 10%;
+    }
+    .carousel-item img{
+        height: 450px;
+    }
+   
+
+  }
+  @media (min-width:768px) and (max-width:992px){
+
+
+	.offcanvas-start{
+       
+        width:40% ;
+    
+    }
+
+  }

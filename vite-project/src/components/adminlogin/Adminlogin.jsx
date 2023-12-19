@@ -119,6 +119,16 @@ const Adminlogin = () => {
 	</div>
 	
 </div>
+
+
+
+
+<Link to={`home`}> <div>home</div></Link>
+
+
+
+
+
     </div>
   )
 }

@@ -12,13 +12,12 @@ router.route("/fetchadminusername").post(Auth,controller.fetchAdminusername);
 
 
 router.route("/addcategory").post(controller.addCategory);
-router.route("/addproduct").post(controller.addProduct);
 router.route("/getcategory").get(controller.getCategory);
 router.route("/getcategorydetails/:id").post(controller.getcategoryfulldata);
 router.route("/editcategorydetails/:id").patch(controller.editCategorydetails);
 router.route("/deletecategory/:id").delete(controller.deleteCategory);
 
-
+router.route("/addproduct").post(controller.addProduct);
 
 
 

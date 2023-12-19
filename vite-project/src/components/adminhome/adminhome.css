@@ -20,16 +20,17 @@
     min-width: 90px;
 }
 .adminname{
-    font-family: 'Italianno', cursive; 
-    font-size: 26px;
+    font-family: 'Arvo', serif;
+    font-size: 15px;
     letter-spacing: 2px;
     word-spacing: 6px;
+    padding-bottom: 2px;
   
 }
 .adminnamemain{
-    padding-right: 3%;
+    padding-right: 1%;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
 }
@@ -43,7 +44,7 @@
 }
 .main1content{
     width: 80%;
-    background-color:rgb(223, 238, 255);
+    background-color:rgb(237, 246, 255);
     height: 100vh;
     padding: 15px;
 }
@@ -91,13 +92,13 @@ justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid rgb(201, 201, 201);
     height: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 .catogoryname{
     height: 40px;
     background-color:aliceblue;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
     font-size: 15px;
     align-items: center;
@@ -117,36 +118,52 @@ justify-content: space-between;
     color: rgb(62, 62, 62);
 }
 .sales{
-    background-color: rgb(75, 213, 169);
+    /* background-color: rgb(205, 255, 239); */
     width: 40px;
     font-size: 25px;
     text-align: center;
     border-radius: 13px;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    height: 40px;
 }
 .orders{
-    background-color: rgb(98, 154, 232);
+    /* background-color: rgb(214, 231, 255); */
     width: 40px;
     font-size: 25px;
     text-align: center;
     border-radius: 13px;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    height: 40px;
 }
 .catogory{
-    background-color: rgb(159, 162, 253);
+    /* background-color: rgb(159, 162, 253); */
     width: 40px;
     font-size: 25px;
     text-align: center;
     border-radius: 13px;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    height: 40px;
 }
 .products{
-    background-color: rgb(159, 206, 246);
+    /* background-color: rgb(159, 206, 246); */
     width: 40px;
     font-size: 25px;
     text-align: center;
     border-radius: 13px;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    height: 40px;
 }
 .link3{
     color:black;

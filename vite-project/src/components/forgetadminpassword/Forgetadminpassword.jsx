@@ -50,7 +50,7 @@ const Forgetadminpassword = () => {
   return (
     <div>
                     <div className="container">
-	<div className="screen">
+	<div className="screen2">
 		<div className="screen__content">
             <div className='head'>Reset Password</div>
 			<form className="login" >

@@ -13,6 +13,7 @@
 	width: 100%;
 	transition: .2s;
     letter-spacing: 1px;
+	font-family: 'Arvo', serif;
 }
 
 .login__input2:active,
@@ -22,13 +23,13 @@
 	border-bottom-color: #6A679E;
 }
 .username{
-    font-size: 34px;
-    font-family: 'Italianno', cursive;
+    font-size: 15px;
+    font-family: 'Arvo', serif;
     font-weight: 600;
 }
 .username2{
     font-weight: 500;
-    font-size: 25px;
-    font-family: 'Italianno', cursive;
+    font-size: 15px;
+    font-family: 'Arvo', serif;
     word-spacing: 10px;
 }

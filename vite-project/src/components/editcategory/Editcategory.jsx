@@ -1,99 +1,103 @@
-import React, {useEffect,useState} from 'react'
-import { HiMiniSquaresPlus } from "react-icons/hi2";
+
+
+
+import React , {useState ,useEffect} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FcTimeline } from "react-icons/fc";
 
 const Editcategory = () => {
 
-    const success = () =>
-    toast.success("Category Edited",{
-       position: "top-right",
-       autoClose:2500 ,
-       hideProgressBar: false,
-       closeOnClick: true,
-       pauseOnHover: true, 
-       draggable: true,
-       progress: undefined, 
-       theme: "dark",
-    })
-    
 
-    const navigate= useNavigate();
-    const {id}=useParams()
-    const[val,setVal]=useState({
-      categoryname:"",
-      description:''
-    })
-   
-    console.log(id);
+  const success = () =>
+  toast.success("Category Edited",{
+     position: "top-right",
+     autoClose:2500 ,
+     hideProgressBar: false,
+     closeOnClick: true,
+     pauseOnHover: true, 
+     draggable: true,
+     progress: undefined, 
+     theme: "dark",
+  })
   
-    const getData=async()=>{
-      const res = await axios.post(`http://localhost:3005/snitch/getcategorydetails/${id}`);
+
+  const navigate= useNavigate();
+  const {id}=useParams()
+  const[val,setVal]=useState({
+    categoryname:"",
+    description:''
+  })
+ 
+  console.log(id);
+
+  const getData=async()=>{
+    const res = await axios.post(`http://localhost:3005/snitch/getcategorydetails/${id}`);
+
+    if(res.status==200)
+    {
+      setVal(res.data)
+    }
+  }
+
+  useEffect(()=>{
+    getData()
+  },[])
   
-      if(res.status==200)
-      {
-        setVal(res.data)
+  console.log('val',val);
+
+  //////////edit category data//////
+
+  const getDatas=(e)=>{ 
+      setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
+  }
+
+  const editData=async(e)=>{
+      e.preventDefault()
+      console.log(val)
+      
+      const res=await axios.patch(`http://localhost:3005/snitch/editcategorydetails/${id}`,{...val})
+      if(res.status!=200){
+        console.log(res.status);
+        alert("Data Not Edited")
+      }else{
+          success(setTimeout(()=>{
+              navigate("/adminhome");
+          },3000));
       }
     }
-  
-    useEffect(()=>{
-      getData()
-    },[])
-    
-    console.log('val',val);
-
-    //////////edit category data//////
-
-    const getDatas=(e)=>{ 
-        setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
-    }
-
-    const editData=async(e)=>{
-        e.preventDefault()
-        console.log(val)
-        
-        const res=await axios.patch(`http://localhost:3005/snitch/editcategorydetails/${id}`,{...val})
-        if(res.status!=200){
-          console.log(res.status);
-          alert("Data Not Edited")
-        }else{
-            success(setTimeout(()=>{
-                navigate("/adminhome");
-            },3000));
-        }
-      }
-
-
-
 
 
 
 
   return (
-    <div  className='body'>
-    <div className="courses-container">
-<div className="course">
-    <div className="course-preview">
-        <div className='catogory2'> <HiMiniSquaresPlus /></div>
-        <div className='cathead'>Edit Category</div>
-   
-    </div>
-    <div className="course-info">
-    <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
-                <input type="text" className="login__input"  name='categoryname'  value={val.categoryname}  onChange={getDatas}  placeholder="Category Name "  />
-            </div>
-            <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
-                <input type="text" className="login__input"  name='description'  value={val.description}  onChange={getDatas}  placeholder="Description"  />
-            </div>
-        <div>
-        <button  onClick={editData} className="btn1">Submit</button>
+    <div >
+        <div className='cmain'>
 
-        <ToastContainer 
+<div className="modal">
+<form className="form">
+  <div className='head2'>
+  <div><FcTimeline /></div>
+  <div className='chead'> Add Category</div>
+  </div> 
+  
+  <div className="credit-card-info--form">
+    <div className="input_container">
+      <label  className="input_label">Category Name</label>
+      <input id="password_field" className="input_field" type="text" value={val.categoryname}  onChange={getDatas} name='categoryname' title="Inpit title" placeholder=""/>
+    </div>
+    <div className="input_container">
+      <label  className="input_label">Description</label>
+      <textarea className="input_field2"  id="" cols="30" name='description'  value={val.description}  onChange={getDatas} rows="10"></textarea>
+     
+    </div>
+ 
+  </div>
+    <button onClick={editData} className="purchase--btn">Edit</button>
+    <ToastContainer 
 				
 				position="top-right" 
 				autoClose={2500}
@@ -107,17 +111,14 @@ const Editcategory = () => {
 				theme="dark"
 				
 				/>
-     
-        </div>
+</form>
+</div>
+</div> 
     </div>
-</div>
-</div>
-
-
-
-
-</div>
   )
 }
 
 export default Editcategory
+
+
+
