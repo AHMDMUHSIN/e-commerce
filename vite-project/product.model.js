@@ -1,39 +1,15 @@
 import mongoose from "mongoose";
-
-
 const product_schema=new mongoose.Schema({
-  
-    name:{type:String,
-        required:[true,"Username is required"],
-    },
-    description:{type:String,
-        required:[true,"Username is required"]
-       
-    },
-    categoryname:{type:String,
-        required:[true,"Username is required"],
-    },
-    price:{type:String,
-            required:[true,"Username is required"]
-           
-    },
-    size:{
-        S:{type:String},
-        M:{type:String},
-        L:{type:String},
-        XL:{type:String},
-    },
-    image:{type:String,
-            required:[true,"Username is required"]
-           
-    },
-    stock:{type:String,
-        required:[true,"Username is required"]
-       
-    },
-
+    productname:{type:String},
+    categoryname:{type:String},
+    description:{type:String},
+    price:{type:String},
+    size_S:{type:String},
+    size_M:{type:String},
+    size_L:{type:String},
+    size_XL:{type:String},
+    stock:{type:String},
+    images:{type:Object}
 })
 
-
-
-export default mongoose.model.product||mongoose.model("product",product_schema);
+export default mongoose.model.products||mongoose.model("products",product_schema)

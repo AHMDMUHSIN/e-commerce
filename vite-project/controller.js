@@ -3,6 +3,7 @@ import pkg from "jsonwebtoken";
 import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
 import product_schema from './product.model.js'
+import path from 'path';
 
  
 
@@ -13,7 +14,8 @@ const {sign}=pkg;
 
 export async function addAdmin(req,res){
     try {
-        console.log("hai",req.body);
+        console.log(req.body);
+        console.log(req.body);
         const {username,password,phone,confirmpassword,email}=req.body;
         console.log(username,password,phone,confirmpassword,email,);
         if(!(username&&password&&phone&&confirmpassword&&email))
@@ -150,16 +152,24 @@ export function deleteCategory(req,res)
 ////////////product//////////
 
 
-export async function addProduct(req, res) {
+export async function AddProducts(req, res) {
     try {
-        console.log("hai", req.body);
-        const { ...product } = req.body;
-
-        await product_schema.create({ ...product}); 
-
-        res.status(201).send("Product Successfully Added");
+      // console.log(req.files);
+      const images=req.files;
+      console.log(images);
+      const { productname,categoryname,description,price,size_S,size_M,size_L,size_XL,stock } = req.body;
+      const task=await product_schema.create({ productname,categoryname,description,price,size_S,size_M,size_L,size_XL,stock,images });
+      console.log(task);
+      res.status(200).send({result : task});
     } catch (error) {
-        console.error(error);
-        res.status(500).send(error.message || "Internal Server Error");
+      console.error(error);
+      res.status(500).send("Internal Server Error");
     }
-}
+  }
+  
+  export async function SetPath(req,res)
+  {
+    let { filename } = req.params;
+    console.log(filename);
+    return res.sendFile(path.resolve(`./images/${filename}`))
+  }

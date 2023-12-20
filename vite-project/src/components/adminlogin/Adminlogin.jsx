@@ -1,12 +1,18 @@
 import React , {useState} from 'react'
-import { Link } from 'react-router-dom'
-import './adminlogin.css'
+import { HiMiniBars3CenterLeft } from "react-icons/hi2"
+import { CiUser } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { PiHandbagSimpleThin } from "react-icons/pi";
+import { VscClose } from "react-icons/vsc";
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import './adminlogin1.css'
 
-const Adminlogin = () => {
+const AdminLogin = () => {
 
     const success = () =>
     toast.success("Login succesful",{
@@ -56,30 +62,84 @@ const Adminlogin = () => {
 
 
 
-
-
   return (
     <div>
-            <div className="container">
-	<div className="screen2">
-		<div className="screen__content">
-            <div className='head'>Admin Login</div>
-			<form className="login2">
-				<div className="login__field">
-					<i className="login__icon fas fa-user"></i>
-					<input type="text" className="login__input" placeholder="User name "   onChange={(e) => setUser(e.target.value)} />
-				</div>
-			
-             
-                <div className="login__field">
-					<i className="login__icon fas fa-lock"></i>
-					<input type="password" className="login__input" placeholder="Password"   onChange={(e) => setPassword(e.target.value)}/>
-				</div>
-                <div className='forget' > Forget  <Link to={`/forgetadminusername`} className='link2'> Username </Link> Or <Link to={`/forgetadminpassword`} className='link2'> Password</Link></div>
-               
-				<div>
-                    <button onClick={handleLogin} className='btn'>Login</button>
-                    <ToastContainer 
+            <nav className="navbar navbar-light  navbar-main">
+  <div className='navbarcontent'>
+   
+   <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
+   </div></button>
+
+<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div className="offcanvas-header">
+    <div className='offcanvas-header2'>
+        <div className='userlogo'><CiUser /></div>
+        <div className='userlogotext' >LOG IN </div>
+       
+    
+    </div>
+    
+    <button type="button" className='homebtn' data-bs-dismiss="offcanvas" ><VscClose /></button>
+  </div>
+  <div className='offcanvas-borderbottom' ></div>
+  <div className="offcanvas-body">
+   <div className='offcanvas-body-content'>NEW ARRAIVALS</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>MOST TRENDING</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>SHOP 
+   </div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>TRACK ORDER</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content2main'>
+   <div className='offcanvas-body-content2'>PLACE A </div>
+   <div className='offcanvas-body-content2'>RETURN  / EXCHANGE</div>
+   <div className='offcanvas-body-content2'>REQUEST</div>
+   </div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>CUSTOMER SUPPORT</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>VISIT STORE</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>RELOVE</div>
+   <div className='offcanvas-borderbottom' ></div>
+  </div>
+</div>
+
+
+
+
+   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
+   <div className='homeicons'>
+    
+    <div><CiUser /></div>
+    <div><CiSearch /></div>
+    <div><CiHeart /></div>
+    <div><PiHandbagSimpleThin /></div>
+   
+   </div>
+  </div>
+</nav>
+
+{/* ////////////////////// */}
+
+  
+
+   <div className='userloginhead'>ADMIN LOGIN</div>
+
+  <div className='userloginform'>
+  <label className='userloginlabel' htmlFor="">USER NAME</label>
+   <div className='userlogininput'><input   onChange={(e) => setUser(e.target.value)} type="text" /></div>
+   <label className='userloginlabel' htmlFor="">PASSWORD</label>
+   <div className='userlogininput2'><input  onChange={(e) => setPassword(e.target.value)} type="password" /></div>
+
+   <div className='forget' > Forget  <Link to={`/forgetadminusername`} className='link2'> Username </Link> Or <Link to={`/forgetadminpassword`} className='link2'> Password</Link></div>
+
+
+   <button onClick={handleLogin} className='btnuserlogin'>LOG IN</button>
+
+   <ToastContainer 
 				
 				position="top-right" 
 				autoClose={2500}
@@ -93,44 +153,19 @@ const Adminlogin = () => {
 				theme="dark"
 				
 				/>
-                </div>
-               
+
+   <div className='createaccount'><Link to={`/adminregister`} className='link3'>CREATE ACCOUNT</Link></div>
 
 
-			</form>
-			<div className="social-login">
-				<div><Link className='link' to={`/adminreg`}>sign in</Link></div>
-                
-				
-			
-				
+  
+   
 
-				
-				
-			</div>
-		
-		</div>
-<div className="screen__background">
-			<span className="screen__background__shape screen__background__shape4"></span>
-			<span className="screen__background__shape screen__background__shape3"></span>		
-			<span className="screen__background__shape screen__background__shape2"></span>
-			<span className="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-	
-</div>
+  </div>
 
 
-
-
-<Link to={`home`}> <div>home</div></Link>
-
-
-
-
-
+  <Link to={`/home`}>home</Link>
     </div>
   )
 }
 
-export default Adminlogin
+export default AdminLogin

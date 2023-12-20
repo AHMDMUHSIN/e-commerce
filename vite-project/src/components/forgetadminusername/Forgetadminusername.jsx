@@ -1,7 +1,11 @@
 import React ,{useState}from 'react'
-import './forgetadminusername.css'
-// import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { HiMiniBars3CenterLeft } from "react-icons/hi2"
+import { CiUser } from "react-icons/ci";
+import { CiSearch } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { PiHandbagSimpleThin } from "react-icons/pi";
+import { VscClose } from "react-icons/vsc";
 
 const Forgetadminusername = () => {
 
@@ -28,40 +32,107 @@ const Forgetadminusername = () => {
 
   return (
     <div>
-                 <div className="container">
-	<div className="screen2">
-		<div className="screen__content">
-            <div className='head'>Forgot Username</div>
-			<form className="login3">
-				<div className="login__field">
-					<i className="login__icon fas fa-user"></i>
-					<input type="text" className="login__input2" onChange={handleChange}  placeholder="Enter Your Phone Number "   />
-				</div>
-			
-                <div className='username'><span className='username2'>Username Is  : </span>   {usernameMessage}</div>
-  
-                
-               
-				<div>
-                    <button onClick={getUsername}  className='btn'>Find Username</button>
-            
-                </div>
-               
+     
+     <nav className="navbar navbar-light  navbar-main">
+  <div className='navbarcontent'>
+   
+   <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
+   </div></button>
 
-
-			</form>
-		
-		
-		</div>
-<div className="screen__background">
-			<span className="screen__background__shape screen__background__shape4"></span>
-			<span className="screen__background__shape screen__background__shape3"></span>		
-			<span className="screen__background__shape screen__background__shape2"></span>
-			<span className="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-	
+<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div className="offcanvas-header">
+    <div className='offcanvas-header2'>
+        <div className='userlogo'><CiUser /></div>
+        <div className='userlogotext' >LOG IN </div>
+       
+    
+    </div>
+    
+    <button type="button" className='homebtn' data-bs-dismiss="offcanvas" ><VscClose /></button>
+  </div>
+  <div className='offcanvas-borderbottom' ></div>
+  <div className="offcanvas-body">
+   <div className='offcanvas-body-content'>NEW ARRAIVALS</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>MOST TRENDING</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>SHOP 
+   </div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>TRACK ORDER</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content2main'>
+   <div className='offcanvas-body-content2'>PLACE A </div>
+   <div className='offcanvas-body-content2'>RETURN  / EXCHANGE</div>
+   <div className='offcanvas-body-content2'>REQUEST</div>
+   </div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>CUSTOMER SUPPORT</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>VISIT STORE</div>
+   <div className='offcanvas-borderbottom' ></div>
+   <div className='offcanvas-body-content'>RELOVE</div>
+   <div className='offcanvas-borderbottom' ></div>
+  </div>
 </div>
+
+
+
+
+   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
+   <div className='homeicons'>
+    
+    <div><CiUser /></div>
+    <div><CiSearch /></div>
+    <div><CiHeart /></div>
+    <div><PiHandbagSimpleThin /></div>
+   
+   </div>
+  </div>
+</nav>
+
+
+
+
+{/* //////////////////// */}
+
+<div className='userloginhead'>forgot username</div>
+
+<div className='userloginform2'>
+
+
+
+
+ 
+
+  <label className='userloginlabel' htmlFor="">PHONE</label>
+  <div> <input type="text" className='userlogininput3' onChange={handleChange}  name='phone'    /></div>
+
+  
+
+
+
+
+
+
+ 
+
+
+  <button onClick={getUsername} className='btnuserlogin3'>find username</button>
+
+  <label className='userloginlabel' htmlFor=""> username found</label>
+  <div> <input type="text" className='userlogininput3' placeholder= {usernameMessage}  name='email'   /></div>
+
+ 
+
+
+
+
+ 
+
+
+ </div>
+
     </div>
   )
 }

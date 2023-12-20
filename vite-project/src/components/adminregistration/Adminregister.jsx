@@ -1,20 +1,21 @@
-import React , {useState} from 'react'
-import axios from 'axios'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import React  from 'react'
+import './adminreg2.css'
 import { HiMiniBars3CenterLeft } from "react-icons/hi2"
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
 import { VscClose } from "react-icons/vsc";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
 
-const Forgetadminpassword = () => {
-    
-    const navigate=useNavigate()
+const Adminregister = () => {
+
     const success = () =>
-    toast.success("Password changed",{
+    toast.success("Succesfully Registered",{
        position: "top-right",
        autoClose:2500 ,
        hideProgressBar: false,
@@ -24,39 +25,51 @@ const Forgetadminpassword = () => {
        progress: undefined, 
        theme: "dark",
     })
+   const navigate=useNavigate()
+   const[val,setVal]=useState({
+           username:"",
+           email:"",
+           phone:"",
+           password:"",
+           confirmpassword:"",
 
-    const [val,setVal]=useState({phone:"",email:"",password:"",})
-    const handlechange=(e)=>{
-      setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
-        console.log(val);
-    }
- 
-    const editPwd=async(e)=>{
-        e.preventDefault()
-        const res=await axios.get(`http://localhost:3005/snitch/adminusername/${val.phone}`)
-        let data=res.data;
-        if(data.email===val.email){
-          const res=await axios.patch(`http://localhost:3005/snitch/adminpassword/${val.phone}`,{
-        password:val.password
-      })
-    
-      if(res.status===200){
-        success(setTimeout(()=>{
-            navigate("/");
-        },3000));
-      }
-      console.log(res.status);
-    }else{
-      alert("Username and Password does not match")
-    }
-        }
+           
+   });
+   
+   const getData=(e)=>{
+       setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
+       console.log(val);
+   }
+   
+   
+   const Registerdata=async(e)=>{
+       e.preventDefault();
+       console.log({...val});
+       
+       const res=await axios.post("http://localhost:3005/snitch/addadmin",{...val});
+         
+       if(res.status!=201){
+         alert("Data Not Added")
+       }
+       if (val.password!=val.confirmpassword){
+		alert("Does not match the password")
+       }
+       else{
+           success();
+           setTimeout(()=>{
+               navigate("/");
+           },3000);
+       }
+
+   }
+
+
 
 
 
   return (
     <div>
-
-<nav className="navbar navbar-light  navbar-main">
+                <nav className="navbar navbar-light  navbar-main">
   <div className='navbarcontent'>
    
    <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
@@ -114,73 +127,60 @@ const Forgetadminpassword = () => {
   </div>
 </nav>
 
+{/* ////////////////////// */}
+
+  
+
+   <div className='userloginhead2'>CREATE ACCOUNT</div>
+
+  <div className='userloginform2'>
 
 
+ <label className='userloginlabel' htmlFor="">USER NAME</label>
+  <div><input type="text" className='userlogininput3'  name='username'  onChange={getData}  /></div>
 
-{/* //////////////////////// */}
+   <label className='userloginlabel' htmlFor="">E-MAIL</label>
+   <div> <input type="text" className='userlogininput3'  name='email'  onChange={getData}  /></div>
 
+   <label className='userloginlabel' htmlFor="">PHONE</label>
+   <div> <input type="text" className='userlogininput3'   name='phone'  onChange={getData}  /></div>
 
-<div className='userloginhead'>reset password</div>
+   <label className='userloginlabel' htmlFor="">PASSWORD</label>
+   <div><input type="password" className='userlogininput3'  name='password'  onChange={getData}  /></div>
 
-
-
- 
-
-<div className='userloginform2'>
-
-
-
-
- 
-
-  <label className='userloginlabel' htmlFor="">PHONE</label>
-  <div> <input type="text" className='userlogininput3'  name='phone'  onChange={handlechange}  /></div>
-
-  <label className='userloginlabel' htmlFor="">E-MAIL</label>
-  <div> <input type="text" className='userlogininput3'  name='email'  onChange={handlechange}  /></div>
-
-  <label className='userloginlabel' htmlFor="">enter new PASSWORD</label>
-  <div><input type="password" className='userlogininput3'  name='password'  onChange={handlechange}  /></div>
+   <label className='userloginlabel' htmlFor="">CONFIRM PASSWORD</label>
+   <div> <input type="password" className='userlogininput3'  name='confirmpassword'  onChange={getData}  /></div>
 
 
+  
 
 
- 
+   <button onClick={Registerdata}  className='btnuserlogin2'>SUBMIT</button>
 
-
-  <button onClick={editPwd}  className='btnuserlogin2'>SUBMIT</button>
-
-  <ToastContainer 
-       
-       position="top-right" 
-       autoClose={2500}
-       hideProgressBar={false} 
-       newestOnTop={false} 
-       closeOnClick 
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       pauseOnHover
-       theme="dark"
-       
-       />
-
-
+   <ToastContainer 
+				
+				position="top-right" 
+				autoClose={2500}
+				hideProgressBar={false} 
+				newestOnTop={false} 
+				closeOnClick 
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="dark"
+				
+				/>
 
 
  
 
-
- </div>
-
+  
 
 
-
-
-
-
+  </div>
     </div>
   )
 }
 
-export default Forgetadminpassword
+export default Adminregister

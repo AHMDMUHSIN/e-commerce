@@ -19,7 +19,7 @@ const Home = () => {
    <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
    </div></button>
 
-<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div className="offcanvas-header">
     <div className='offcanvas-header2'>
         <div className='userlogo'><CiUser /></div>
@@ -77,19 +77,19 @@ const Home = () => {
 <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src="../../../public/Homepage-Banner_1_OLqQos3.webp" className="d-block w-100" alt="..."/>
+      <img src="../Web-banner_copy_2.webp" className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="../../../public/Web-banner_7.webp" className="d-block w-100" alt="..."/>
+      <img src="../Web-banner_7.webp" className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="../../../public/Web-banner_copy_2.webp" className="d-block w-100" alt="..."/>
+      <img src="../Homepage-Banner_1_OLqQos3.webp" className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="../../../public/Homepage-Banner_Hardik-Gangsta_QqsVPG8.webp" className="d-block w-100" alt="..."/>
+      <img src="../Homepage-Banner_Hardik-Gangsta_QqsVPG8.webp" className="d-block w-100" alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="../../../public/Web-banner_6.webp" className="d-block w-100" alt="..."/>
+      <img src="../Web-banner_6.webp" className="d-block w-100" alt="..."/>
     </div>
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

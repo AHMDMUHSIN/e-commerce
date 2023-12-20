@@ -13,7 +13,7 @@ const Products = () => {
     const success = () =>
     toast.success("Category Added",{
        position: "top-right",
-       autoClose:2500 ,
+       autoClose:1500 ,
        hideProgressBar: false,
        closeOnClick: true,
        pauseOnHover: true, 
@@ -83,7 +83,7 @@ const Products = () => {
     <ToastContainer 
 				
 				position="top-right" 
-				autoClose={2500}
+				autoClose={1500}
 				hideProgressBar={false} 
 				newestOnTop={false} 
 				closeOnClick 

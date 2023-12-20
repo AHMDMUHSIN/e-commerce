@@ -1,0 +1,82 @@
+.userlogininput3 input{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+     border: 1px solid black;
+    
+
+}
+.userlogininput3{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+    padding-left: 10px;
+   
+}
+.userlogininput3 input:focus {
+	border: 1px solid black;
+    outline: none;
+	
+  }
+  
+.userloginhead2{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 700;
+}
+.userloginform2{
+    width: 25%;
+    margin: auto;
+    margin-top: 2%;
+}
+.btnuserlogin2{
+    width: 100%;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 40px;
+    font-size: 13px;
+    margin-top: 8%;
+}
+.btnuserlogin3{
+    width: 100%;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 40px;
+    font-size: 13px;
+    margin-top: 8%;
+    margin-bottom: 10%;
+}
+
+@media (min-width:300px) and (max-width:576px){
+
+    .userloginform2{
+      width: 50%;
+      min-width: 280px;
+    }
+      
+  
+    }
+    @media (min-width:576px) and (max-width:768px){
+  
+      .userloginform2{
+          width: 50%;
+          min-width: 280px;
+        }
+  
+    }
+    @media (min-width:768px) and (max-width:992px){
+  
+      .userloginform2{
+          width: 45%;
+          min-width: 280px;
+        }
+  
+    }

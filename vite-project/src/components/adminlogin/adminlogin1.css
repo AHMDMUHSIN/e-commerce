@@ -1,0 +1,89 @@
+.userloginhead{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: 700;
+}
+
+.userloginlabel{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 11px;
+    font-weight: 700; 
+    margin-bottom: 10px;
+    letter-spacing: 2PX;
+}
+
+.btnuserlogin{
+    width: 100%;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 40px;
+    font-size: 13px;
+}
+.userlogininput2 input{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+    padding-left: 10px;
+    border: 1px solid black;
+    
+
+}
+.userlogininput2 input{
+    font-family:'Julius Sans One', sans-serif ;
+}
+
+.userlogininput2 input:focus {
+	border: 1px solid black;
+    outline: none;
+	
+  }
+  .userlogininput input:focus {
+	border: 1px solid black;
+    outline: none;
+	
+  }
+
+
+.forget{
+    text-align: end;
+    margin-bottom: 25px;
+    font-family:'Julius Sans One', sans-serif ;
+    margin-top: 5px;
+
+}
+
+.createaccount{
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.link2{
+    color: black;
+    text-decoration: none;
+    font-family:'Julius Sans One', sans-serif ;
+    font-size: 10px;
+    font-weight: 700;
+}
+.link2:hover{
+    color: black;
+}
+.link3{
+    color: black;
+    text-decoration: none;
+    font-family:'Julius Sans One', sans-serif ;
+    font-size: 14px;
+    font-weight: 700;
+}
+.link3:hover{
+    color: black;
+}
+.forget{
+    font-size: 9px;
+    font-family:'Julius Sans One', sans-serif ;
+}

@@ -1,14 +1,100 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './product.css'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FcTimeline } from "react-icons/fc";
+import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
+
+
+
+  const success = () =>
+  toast.success("Product Added",{
+     position: "top-right",
+     autoClose:1500 ,
+     hideProgressBar: false,
+     closeOnClick: true,
+     pauseOnHover: true, 
+     draggable: true,
+     progress: undefined, 
+     theme: "dark",
+  })
+
+  const navigate=useNavigate()
+
+  const [getCat,setCat]=useState([])
+  const [val,setVal]=useState({
+    productname:"",
+    categoryname:"",
+    description:"",
+    price:"",
+    size_S:"",
+    size_M:"",
+    size_L:"",
+    size_XL:"",
+    stock:"",
+    images:""
+  })
+  const GetData=(e)=>{ 
+    setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
+    console.log(val);
+  }
+
+  const getCategory=async()=>{
+    const res=await axios.get("http://localhost:3005/snitch/getcategory")
+    setCat(res.data)
+    console.log(getCat);
+  }
+  useEffect(()=>{
+    getCategory()
+  },[])
+
+  const addProduct=async(e)=>{
+   try {
+    e.preventDefault()
+    let formData = new FormData();
+    console.log(Object.entries(val));
+    Object.entries(val).forEach(item => formData.append(item[0],item[1]));
+    if (val.images && val.images.length > 0) {
+      for (const image of val.images) {
+        formData.append('images', image);
+      }
+    }
+    const res = await axios.post("http://localhost:3005/snitch/addProduct", formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    if(res.status!=404){
+      success();
+      setTimeout(()=>{
+          navigate("/adminhome");
+      },3000);
+    }
+   } catch (error) {
+      alert("error",error)
+   }
+  }
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div >
         <div className='cmain'>
 
 <div className="modal2">
-<form className="form">
+<form className="form" onSubmit={addProduct}  >
   <div className='head2'>
   <div><FcTimeline /></div>
   <div className='chead'> Add Product</div>
@@ -20,19 +106,25 @@ const Products = () => {
   <div className="credit-card-info--form">
     <div className="input_container">
       <label  className="input_label">Product Name</label>
-      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder=""/>
+      <input id="password_field" className="input_field" type="text" name="productname" onChange={GetData} title="Inpit title" placeholder=""/>
     </div>
     <div className="input_container">
       <label  className="input_label">Category Name</label>
-      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder=""/>
+      <select name="categoryname" id="category"  className="select" onChange={GetData}>
+     {
+      getCat.map((data,index)=>
+        <option className='option' value={data.category} key={index}>{data.categoryname}</option>
+     )
+     }
+      </select>
     </div>
     <div className="input_container">
       <label  className="input_label">Description</label>
-      <textarea className="input_field3" name="" id="" cols="30" rows="10"></textarea>
+      <textarea className="input_field3" name="description" id="" cols="30" onChange={GetData} rows="10"></textarea>
     </div>
     <div className="input_container">
       <label  className="input_label">Price</label>
-      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder=""/>
+      <input id="password_field" className="input_field" type="text" name="price" onChange={GetData} title="Inpit title" placeholder=""/>
     </div>
     <div className="input_container">
       <label  className="input_label">Size</label>
@@ -41,22 +133,22 @@ const Products = () => {
 
      <div className='sizesub'>
         <div> <label  className="input_label">S</label></div>
-        <div> <input id="password_field" className="input_field4" type="text" name="input-name" title="Inpit title" placeholder=""/> </div>
+        <div> <input id="password_field" className="input_field4" type="text" name="size_S" title="Inpit title"  onChange={GetData} placeholder=""/> </div>
       
       </div>
       <div  className='sizesub'>
         <div> <label  className="input_label">M</label></div>
-        <div> <input id="password_field" className="input_field4" type="text" name="input-name" title="Inpit title" placeholder=""/> </div>
+        <div> <input id="password_field" className="input_field4" type="text" name="size_M" title="Inpit title"  onChange={GetData} placeholder=""/> </div>
       
       </div>
       <div  className='sizesub'>
         <div> <label  className="input_label">L</label></div>
-        <div> <input id="password_field" className="input_field4" type="text" name="input-name" title="Inpit title" placeholder=""/> </div>
+        <div> <input id="password_field" className="input_field4" type="text" name="size_L" title="Inpit title"  onChange={GetData} placeholder=""/> </div>
       
       </div>
       <div  className='sizesub'>
         <div> <label  className="input_label">XL</label></div>
-        <div> <input id="password_field" className="input_field4" type="text" name="input-name" title="Inpit title" placeholder=""/> </div>
+        <div> <input id="password_field" className="input_field4" type="text" name="size_XL" title="Inpit title"  onChange={GetData} placeholder=""/> </div>
       
       </div>
      </div>
@@ -64,7 +156,7 @@ const Products = () => {
     </div>
     <div className="input_container">
       <label  className="input_label">Stock</label>
-      <input id="password_field" className="input_field" type="text" name="input-name" title="Inpit title" placeholder=""/>
+      <input id="password_field" className="input_field" type="text" name="stock" title="Inpit title" onChange={GetData}  placeholder=""/>
     </div>
    
  
@@ -77,15 +169,19 @@ const Products = () => {
    <div className="container5"> 
  
   <div className='pimg'>
-    <img src="../../../public/stylish-young-handsome-man-classy-outfit.jpg" alt="" />
+    <img src="../stylish-young-handsome-man-classy-outfit.jpg" alt="" />
    </div>
+
+
   
-  <label for="file" className="footer"> 
-    <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg> 
-    <p>Choose File</p> 
+  <label  className="footer"> 
+    <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" ></g><g id="SVGRepo_tracerCarrier" ></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg> 
+    <div className='choosefile'>Choose File</div>
+   <div className='file'> <input id='file'   multiple type="file" name='images' onChange={e => setVal(p => ({...p,[e.target.name]: e.target.files}))} /> </div>
+    
     
   </label> 
-  <input id="file" type="file"/> 
+  
 </div>
 
   
@@ -95,6 +191,20 @@ const Products = () => {
  
 
     <button className="purchase--btn">Add</button>
+    <ToastContainer 
+				
+				position="top-right" 
+				autoClose={1500}
+				hideProgressBar={false} 
+				newestOnTop={false} 
+				closeOnClick 
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="dark"
+				
+				/>
 </form>
 </div>
 </div> 

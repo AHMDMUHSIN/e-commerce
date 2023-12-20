@@ -5,9 +5,9 @@ import { FcComboChart } from "react-icons/fc";
 import { FcTimeline } from "react-icons/fc";
 import { FcTodoList } from "react-icons/fc";
 import { TbLogout2 } from "react-icons/tb";
-import { MdOutlineEditNote } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { FcPositiveDynamic } from "react-icons/fc";
+import { BiSolidEditAlt } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -138,7 +138,7 @@ const Adminhome = () => {
                  {data.categoryname}
                 </div>
                 <div className='edit'>
-                <Link to={`/editcategory/${data._id}`} className='link3'><MdOutlineEditNote /></Link>
+                <Link to={`/editcategory/${data._id}`} className='link6'><BiSolidEditAlt /></Link>
                 
                 </div>
                 <div onClick={() => deleteCategory(data._id)} className='delete'>
@@ -176,13 +176,13 @@ const Adminhome = () => {
                  <div className='orders'><FcComboChart /></div>
                  <div>orders</div>
               </div>
-             <Link to={`/category`} className='link3'>
+             <Link to={`/category`} className='link5'>
              <div className='cards'>
               <div className='catogory'><FcTimeline /></div>
                  <div>add  category</div>
               </div>
              </Link>
-              <Link to={`/products`} className='link3'>
+              <Link to={`/products`} className='link5'>
               <div className='cards'>
               <div className='products'><FcTodoList /></div>
                  <div>add  products</div>

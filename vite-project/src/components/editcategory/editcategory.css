@@ -1,5 +1,4 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 .modal1 {
 	width: 50%;
 	height: fit-content;
@@ -93,10 +92,11 @@
   }
   
   .input_label {
-	font-size: 12px;
+	font-size: 15px;
 	color: #202020;
 	font-weight: 600;
-	font-family: 'Julius Sans One', sans-serif;
+    /* margin-bottom: 10px; */
+    font-family: 'Julius Sans One', sans-serif;
   }
   
   .input_field {
@@ -108,7 +108,7 @@
 	background-color: #F2F2F2;
 	border: 1px solid #e5e5e500;
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-	font-family: 'Julius Sans One', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
   }
   
   .input_field:focus {
@@ -125,7 +125,6 @@
 	background-color: #F2F2F2;
 	border: 1px solid #e5e5e500;
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-	font-family: 'Julius Sans One', sans-serif;
   }
   .input_field2:focus {
 	border: 1px solid transparent;
@@ -145,8 +144,6 @@
 	background: linear-gradient(90deg, #363795,#005c97);	
 	box-shadow: 0px 0px 0px 0px #FFFFFF, 0px 0px 0px 0px #000000;
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
-	font-family: 'Julius Sans One', sans-serif;
-	
   }
   
   .purchase--btn:hover {
@@ -178,7 +175,7 @@
 .chead{
 	font-family: 'Julius Sans One', sans-serif;
 	word-spacing: 15px;
-	font-weight: 500;
+	font-weight: 700;
 }
 .cmain {
     

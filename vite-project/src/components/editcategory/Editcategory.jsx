@@ -1,21 +1,20 @@
-
-
-
 import React , {useState ,useEffect} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { FcTimeline } from "react-icons/fc";
+// import { FcTimeline } from "react-icons/fc";
 
 const Editcategory = () => {
+
+
 
 
   const success = () =>
   toast.success("Category Edited",{
      position: "top-right",
-     autoClose:2500 ,
+     autoClose:1500 ,
      hideProgressBar: false,
      closeOnClick: true,
      pauseOnHover: true, 
@@ -73,15 +72,19 @@ const Editcategory = () => {
 
 
 
-  return (
-    <div >
-        <div className='cmain'>
 
-<div className="modal">
+
+
+
+  return (
+    <div>
+          <div className='cmain'>
+
+<div className="modal1">
 <form className="form">
   <div className='head2'>
-  <div><FcTimeline /></div>
-  <div className='chead'> Add Category</div>
+  <div></div>
+  <div className='chead'> Edit Category</div>
   </div> 
   
   <div className="credit-card-info--form">
@@ -91,16 +94,16 @@ const Editcategory = () => {
     </div>
     <div className="input_container">
       <label  className="input_label">Description</label>
-      <textarea className="input_field2"  id="" cols="30" name='description'  value={val.description}  onChange={getDatas} rows="10"></textarea>
+      <textarea className="input_field2"  id="" cols="30" name='description'  value={val.description}  onChange={getDatas}   rows="10"></textarea>
      
     </div>
  
   </div>
-    <button onClick={editData} className="purchase--btn">Edit</button>
+    <button onClick={editData}  className="purchase--btn">Edit</button>
     <ToastContainer 
 				
 				position="top-right" 
-				autoClose={2500}
+				autoClose={1500}
 				hideProgressBar={false} 
 				newestOnTop={false} 
 				closeOnClick 
@@ -111,6 +114,7 @@ const Editcategory = () => {
 				theme="dark"
 				
 				/>
+   
 </form>
 </div>
 </div> 
@@ -119,6 +123,3 @@ const Editcategory = () => {
 }
 
 export default Editcategory
-
-
-

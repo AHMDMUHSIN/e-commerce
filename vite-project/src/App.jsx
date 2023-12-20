@@ -1,7 +1,5 @@
 import './App.css'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import Adminregistration from './components/adminreg/Adminregistration'
-import Adminlogin from './components/adminlogin/Adminlogin'
 import Forgetadminusername from './components/forgetadminusername/Forgetadminusername'
 import Forgetadminpassword from './components/forgetadminpassword/Forgetadminpassword'
 import Adminhome from './components/adminhome/Adminhome'
@@ -10,6 +8,9 @@ import Products from './components/products/Products'
 import Editcategory from './components/editcategory/Editcategory'
 import Home from './components/home/Home'
 import Userlogin from './components/userlogin/Userlogin'
+import AdminLogin from './components/adminlogin/AdminLogin'
+import Adminregister from './components/adminregistration/Adminregister'
+
 
 
 function App() {
@@ -19,8 +20,7 @@ function App() {
     <>
      <BrowserRouter>
      <Routes>
-     <Route path='/' Component={Adminlogin}/>
-     <Route path='/adminreg' Component={Adminregistration}/>
+     <Route path='/' Component={AdminLogin}/>
      <Route path='/forgetadminusername' Component={Forgetadminusername}/>
      <Route path='/forgetadminpassword' Component={Forgetadminpassword}/>
      <Route path='/adminhome' Component={Adminhome}/>
@@ -29,6 +29,7 @@ function App() {
      <Route path='/editcategory/:id' Component={Editcategory}/>
      <Route path='/home' Component={Home}/>
      <Route path='/userlogin' Component={Userlogin}/>
+     <Route path='/adminregister' Component={Adminregister}/>
 
      
 
