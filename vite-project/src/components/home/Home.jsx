@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect ,useState} from 'react'
 import { HiMiniBars3CenterLeft } from "react-icons/hi2"
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
@@ -6,9 +6,39 @@ import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
 import { VscClose } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './home.css'
 
 const Home = () => {
+  const [name, setUser] = useState("");
+  const checkLocalStorage = async () => {
+    try {
+      const admintoken = JSON.parse(localStorage.getItem("usertoken"));
+      if (!admintoken) {
+        console.error("Token not found in localStorage");
+        return;
+      }
+      const res = await axios.post(
+        "http://localhost:3005/snitch/fetchcustomername",
+        null,
+        {
+          headers: { Authorization: `Bearer ${admintoken}` },
+        }
+      );
+      setUser(res.data.msg);
+    } catch (error) {
+      console.error(error);
+    } 
+  };
+
+  useEffect(() => {
+    checkLocalStorage();
+  }, []);
+
+
+
+
+
   return (
     <div>
       
@@ -23,7 +53,7 @@ const Home = () => {
   <div className="offcanvas-header">
     <div className='offcanvas-header2'>
         <div className='userlogo'><CiUser /></div>
-        <div className='userlogotext' ><Link className='link5' to={`/userlogin`}>LOG IN  </Link></div>
+        <div className='userlogotext' ><Link className='link5' >{name} </Link></div>
        
     
     </div>

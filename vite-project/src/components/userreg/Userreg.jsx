@@ -1,21 +1,21 @@
-import React, {useState}  from 'react'
-import './userlogin.css'
+import React,{useState} from 'react'
 import { HiMiniBars3CenterLeft } from "react-icons/hi2"
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
 import { VscClose } from "react-icons/vsc";
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './userreg.scss'
 
-const Userlogin = () => {
-
+const Userreg = () => {
+  
+  const navigate =useNavigate()
   const success = () =>
-  toast.success("Login Succesful",{
+  toast.success("Succesfully Registered",{
     position: "top-right",
 autoClose: 1500,
 hideProgressBar: true,
@@ -25,39 +25,74 @@ draggable: true,
 progress: undefined,
 theme: "light",
   })
- 
- 
- 
- 
- const navigate=useNavigate()
- const [name,setUser]=useState("");
- const [password,setPassword]=useState("");
- 
- const handleLogin = async (e) => {
-   e.preventDefault()
-   try {
-     const response = await axios.post("http://localhost:3005/snitch/userlogin", {
- 
-     name: name,
-     password: password
-     });
- 
-     const data = response.data;
-     console.log(data);
- 
-     if (response.status !== 404) {
-     const token = data.token;
-     localStorage.setItem("usertoken", JSON.stringify(token));
-     success(setTimeout(()=>{
-         navigate("/home");
-     },3000),{ state: { name } });
-     } else {
-     alert(data.msg);
-     }
-   } catch (error) {
-     alert("Server not connected");
-   }
- };
+
+
+  let Banner="";
+  const[val,setVal]=useState({
+    name:"",
+    email:"",
+    phone:"",
+    password:"",
+    confirmpassword:"",
+    pincode:"",
+    address:"",
+    location:"",
+    profilephoto:"",
+
+    
+});
+
+
+function convertToBase64Banner(file) {
+  return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+          resolve(fileReader.result)
+      }
+      fileReader.onerror = (error) => {
+          reject(error)
+      }
+  })
+}
+
+const GetBanner=async(e)=>{
+  e.preventDefault()
+
+  Banner=await convertToBase64Banner(e.target.files[0])
+  console.log(Banner);
+}
+
+
+
+const getData=(e)=>{
+setVal((pre)=>({...pre,[e.target.name]:e.target.value}))
+console.log(val);
+}
+
+
+const Registerdata=async(e)=>{
+e.preventDefault();
+console.log({...val});
+
+const res=await axios.post("http://localhost:3005/snitch/addcustomer",{...val,profilephoto:Banner});
+  
+if(res.status!=201){
+  alert("Data Not Added")
+}
+if (val.password!=val.confirmpassword){
+alert("Does not match the password")
+}
+else{
+  success(setTimeout(()=>{
+    navigate("/userlogin");
+},3000));
+}
+
+}
+
+
 
 
 
@@ -66,7 +101,7 @@ theme: "light",
 
   return (
     <div>
-      <nav className="navbar navbar-light  navbar-main">
+                    <nav className="navbar navbar-light  navbar-main">
   <div className='navbarcontent'>
    
    <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
@@ -112,7 +147,7 @@ theme: "light",
 
 
 
-   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
+   <div className='snitchlogo'><img src="../download.png" alt="" /></div>
    <div className='homeicons'>
     
     <div><CiUser /></div>
@@ -128,20 +163,61 @@ theme: "light",
 
   
 
+   <div className='userloginhead2'>CREATE ACCOUNT</div>
+
+  <div className='userloginform3'>
+
+<div className='userloginform3left'>
+    <label className='userloginlabel' htmlFor="">USER NAME</label>
+  <div><input type="text" className='userlogininput3'  name='name' onChange={getData}    /></div>
+
+  <label className='userloginlabel' htmlFor="">E-MAIL</label>
+   <div> <input type="text" className='userlogininput3'  name='email' onChange={getData}   /></div>
+
+  <label className='userloginlabel' htmlFor="">Phone</label>
+   <div> <input type="text" className='userlogininput3'  name='phone' onChange={getData}   /></div>
+
+   <label className='userloginlabel' htmlFor="">Password</label>
+   <div> <input type="text" className='userlogininput3'  name='password' onChange={getData}   /></div>
+
+   <label className='userloginlabel' htmlFor="">Confirm Password</label>
+   <div> <input type="text" className='userlogininput3'  name='confirmpassword' onChange={getData}   /></div>
+
+ </div>
+    <div className='userloginform3right'>
+       
+    <label className='userloginlabel' htmlFor="">Address</label>
+      <div><textarea name="address" className='userlogininput4'  id="" cols="30" onChange={getData}  rows="10"></textarea></div>
+
+      <label className='userloginlabel' htmlFor="">Location</label>
+      <div><textarea name="location" className='userlogininput4'  id="" cols="30" onChange={getData}  rows="10"></textarea></div>
+
+      <label className='userloginlabel' htmlFor="">Pin Code</label>
+   <div> <input type="text" className='userlogininput3'  name='pincode' onChange={getData}   /></div>
+
+   <label className='userloginlabel' htmlFor="">Profile Photo</label>
+  
+
+<label  className="footer2"> 
+    <svg fill="#000000" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" ></g><g id="SVGRepo_tracerCarrier" ></g><g id="SVGRepo_iconCarrier"><path d="M15.331 6H8.5v20h15V14.154h-8.169z"></path><path d="M18.153 6h-.009v5.342H23.5v-.002z"></path></g></svg> 
+    <div className='choosefile'>Choose File</div>
+   <div className='file'> <input id='file'  onChange={GetBanner}  type="file" name='profilephoto'  /> </div>
+    
+    
+  </label> 
+
+  
+  
+  
+
+
+
+
+    </div>
    
-<div className='userloginhead'> LOGIN</div>
-
-<div className='userloginform'>
-<label className='userloginlabel' htmlFor="">USER NAME</label>
- <div className='userlogininput'><input  onChange={(e) => setUser(e.target.value)}   type="text" /></div>
- <label className='userloginlabel' htmlFor="">PASSWORD</label>
- <div className='userlogininput2'><input   onChange={(e) => setPassword(e.target.value)} type="password" /></div>
-
- <div className='forget' > Forget  <Link to={`/forgetadminusername`} className='link2'> Username </Link> Or <Link to={`/forgetadminpassword`} className='link2'> Password</Link></div>
-
-
- <button onClick={handleLogin} className='btnuserlogin'>LOG IN</button>
- <ToastContainer 
+</div>
+<div className='btnuserloginmain'> <button onClick={Registerdata} className='btnuserlogin5'>SUBMIT</button></div>
+<ToastContainer 
 				
 				position="top-right"
 autoClose={1500}
@@ -156,20 +232,9 @@ theme="light"
 				
 				/>
 
- 
-
- <div className='createaccount'><Link to={`/userreg`} className='link3'>CREATE ACCOUNT</Link></div>
 
 
-
- 
-
-</div>
-
-{/* /////////////// footer////////// */}
-
-
-<div className='footer-top-border'></div>
+ <div className='footer-top-border'></div>
 
 <div className='footer1'>
   <div className='footer-contents'>
@@ -212,11 +277,8 @@ theme="light"
 </div>
 
 <div className='copyright'>© 2023 SNITCH | All Rights Reserved</div>
-
-
-
     </div>
   )
 }
 
-export default Userlogin
+export default Userreg

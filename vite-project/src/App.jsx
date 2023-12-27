@@ -10,6 +10,11 @@ import Home from './components/home/Home'
 import Userlogin from './components/userlogin/Userlogin'
 import AdminLogin from './components/adminlogin/AdminLogin'
 import Adminregister from './components/adminregistration/Adminregister'
+import Viewproducts from './components/viewproducts/Viewproducts'
+import Editproduct from './components/editproduct/Editproduct'
+import Productfulldetails from './components/productfulldetails/Productfulldetails'
+import Userreg from './components/userreg/Userreg'
+
 
 
 
@@ -30,6 +35,10 @@ function App() {
      <Route path='/home' Component={Home}/>
      <Route path='/userlogin' Component={Userlogin}/>
      <Route path='/adminregister' Component={Adminregister}/>
+     <Route path='/viewproducts/:categoryname' Component={Viewproducts}/>
+     <Route path='/editproduct/:id' Component={Editproduct}/>
+     <Route path='/productfulldetails/:id' Component={Productfulldetails}/>
+     <Route path='/userreg' Component={Userreg}/>
 
      
 

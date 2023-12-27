@@ -55,6 +55,10 @@ const Adminhome = () => {
       } 
     };
 
+    useEffect(() => {
+      checkLocalStorage();
+    }, []);
+
 //////////// LOGOUT ADMIN////////
 
     const logoutAdmin = () => {
@@ -62,9 +66,7 @@ const Adminhome = () => {
       navigate("/");
     };
 
-    useEffect(() => {
-      checkLocalStorage();
-    }, []);
+   
 
 //////////// DISPLAY CATEGORY ////////   
 
@@ -134,9 +136,11 @@ const Adminhome = () => {
         {
             getCate.map((data,index)=>
             <div key={index} className='catogoryname'>
-                <div className='catogoryname2'>
+               <Link to={`/viewproducts/${data.categoryname}`} className='catogoryname2'>
+               <div >
                  {data.categoryname}
                 </div>
+               </Link>
                 <div className='edit'>
                 <Link to={`/editcategory/${data._id}`} className='link6'><BiSolidEditAlt /></Link>
                 

@@ -5,22 +5,17 @@ import Auth from "./Auth.js";
 const router=Router();
 
 
-import multer from "multer";
-const storage = multer.diskStorage({
-    destination: "./images",
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
-    },
-});
-const upload = multer({ storage: storage });
 
 
+/////////ADMIN//////
 
 router.route("/addadmin").post(controller.addAdmin);
 router.route("/adminlogin").post(controller.adminLogin);
 router.route("/adminusername/:phone").get(controller.forgotAdminusername);
 router.route("/adminpassword/:phone").patch(controller.forgotAdminpassword);
 router.route("/fetchadminusername").post(Auth,controller.fetchAdminusername);
+
+///////////CATEGORY/////////
 
 
 router.route("/addcategory").post(controller.addCategory);
@@ -29,8 +24,21 @@ router.route("/getcategorydetails/:id").post(controller.getcategoryfulldata);
 router.route("/editcategorydetails/:id").patch(controller.editCategorydetails);
 router.route("/deletecategory/:id").delete(controller.deleteCategory);
 
-router.route('/addProduct').post(upload.array( 'images'), controller.AddProducts);
-router.route("/image/:filename").get(controller.SetPath)
+
+////////////////PRODUCTS/////////
+
+
+router.route("/addproduct").post(controller.AddProducts);
+router.route("/getCatWiseProducts/:categoryname").get(controller.getCategoryWisedProduct);
+router.route("/getProduct/:id").get(controller.getProduct);
+router.route("/editProdect/:id").patch(controller.editProdect);
+router.route("/deleteproduct/:id").delete(controller.deleteProduct);
+
+////////////CUSTOMER///////////
+
+router.route("/addcustomer").post(controller.addCustomer);
+router.route("/userlogin").post(controller.userLogin);
+router.route("/fetchcustomername").post(Auth,controller.fetchCustomername);
 
 
 

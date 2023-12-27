@@ -12,14 +12,15 @@ const Products = () => {
    
     const success = () =>
     toast.success("Category Added",{
-       position: "top-right",
-       autoClose:1500 ,
-       hideProgressBar: false,
-       closeOnClick: true,
-       pauseOnHover: true, 
-       draggable: true,
-       progress: undefined, 
-       theme: "dark",
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+       
     })
    const navigate=useNavigate()
    const[val,setVal]=useState({
@@ -82,16 +83,16 @@ const Products = () => {
     <button onClick={addData} className="purchase--btn">Add</button>
     <ToastContainer 
 				
-				position="top-right" 
-				autoClose={1500}
-				hideProgressBar={false} 
-				newestOnTop={false} 
-				closeOnClick 
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="dark"
+                position="top-right"
+                autoClose={1500}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
 				
 				/>
 </form>

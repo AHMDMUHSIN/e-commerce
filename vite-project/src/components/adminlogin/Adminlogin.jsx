@@ -15,15 +15,15 @@ import './adminlogin1.css'
 const AdminLogin = () => {
 
     const success = () =>
-    toast.success("Login succesful",{
-       position: "top-right",
-       autoClose:2500 ,
-       hideProgressBar: false,
-       closeOnClick: true,
-       pauseOnHover: true, 
-       draggable: true,
-       progress: undefined, 
-       theme: "dark",
+    toast.success("Login Succesful",{
+      position: "top-right",
+autoClose: 1500,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
     })
    
    
@@ -141,16 +141,16 @@ const AdminLogin = () => {
 
    <ToastContainer 
 				
-				position="top-right" 
-				autoClose={2500}
-				hideProgressBar={false} 
-				newestOnTop={false} 
-				closeOnClick 
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme="dark"
+				position="top-right"
+autoClose={1500}
+hideProgressBar
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
 				
 				/>
 
@@ -163,7 +163,7 @@ const AdminLogin = () => {
   </div>
 
 
-  <Link to={`/home`}>home</Link>
+  <div  className='home'><Link to={`/home`}>home</Link></div>
     </div>
   )
 }

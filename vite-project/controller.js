@@ -3,7 +3,8 @@ import pkg from "jsonwebtoken";
 import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
 import product_schema from './product.model.js'
-import path from 'path';
+import customer_schema from './customer.model.js'
+
 
  
 
@@ -154,11 +155,9 @@ export function deleteCategory(req,res)
 
 export async function AddProducts(req, res) {
     try {
-      // console.log(req.files);
-      const images=req.files;
-      console.log(images);
-      const { productname,categoryname,description,price,size_S,size_M,size_L,size_XL,stock } = req.body;
-      const task=await product_schema.create({ productname,categoryname,description,price,size_S,size_M,size_L,size_XL,stock,images });
+    
+      const { ...productdetails } = req.body;
+      const task=await product_schema.create({ ...productdetails });
       console.log(task);
       res.status(200).send({result : task});
     } catch (error) {
@@ -166,10 +165,109 @@ export async function AddProducts(req, res) {
       res.status(500).send("Internal Server Error");
     }
   }
+
+  export async function getCategoryWisedProduct(req, res) {
+    try {
+      const { categoryname } = req.params;
+      const products = await product_schema.find({ categoryname: categoryname });
   
-  export async function SetPath(req,res)
-  {
-    let { filename } = req.params;
-    console.log(filename);
-    return res.sendFile(path.resolve(`./images/${filename}`))
+      res.status(200).json(products);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   }
+
+  export async function getProduct(req,res){
+    const { id }=req.params;
+    console.log(id);
+    let task=await product_schema.findOne({ _id:id })
+    console.log(task);
+    res.status(200).send(task)
+  }
+  
+  export async function editProdect(req, res) {
+    const { id } = req.params;
+    try {
+        const updatedData = req.body;
+        const value = await product_schema.updateOne({ _id: id }, { $set: updatedData });
+        res.status(200).send(value);
+    } catch (error) {
+        res.status(404).send(error);
+    }
+  }
+
+  export function deleteProduct(req,res)
+{
+    const{id}=req.params;
+    const data= product_schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
+  
+ 
+
+
+  ///////////////customer//////////////
+
+  export async function addCustomer(req,res){
+    try {
+        console.log(req.body);
+        const {name,password,phone,confirmpassword,email,address,location,pincode,profilephoto}=req.body;
+        console.log(name,password,phone,confirmpassword,email,address,location,pincode,profilephoto);
+        if(!(name&&password&&phone&&confirmpassword&&email&&address&&location&&pincode&&profilephoto))
+        return res.status(404).send("fields are empty")
+        if(password!=confirmpassword)
+        return res.status(404).send("password and confirm password are not same")
+       
+        bcrypt.hash(password,10)    
+        .then((hashedPwd)=>{
+            customer_schema.create({name,password:hashedPwd,phone,confirmpassword,email,address,location,pincode,profilephoto});
+        })
+        .then(()=>{
+            res.status(201).send("sucessfully registered")
+        })
+      .catch((error)=>{
+        res.status(500).send(error)
+       })
+        
+       } catch (error) {
+        console.log(error);
+    
+    }
+}
+
+
+export async function userLogin(req, res) {
+    try {
+     console.log(req.body);
+     const { name, password } = req.body;
+     const usr = await customer_schema.findOne({ name })
+     console.log(usr);
+     if (usr === null) return res.status(404).send("username or password doesnot exist");
+     const success =await bcrypt.compare(password, usr.password)
+     console.log(success);
+     if (success !== true) return res.status(404).send("username or password doesnot exist");
+     const token = await sign({ name }, process.env.JWT_KEY, { expiresIn: "24h" })
+     console.log(token);
+     res.status(200).send({ msg: "successfullly login", token })
+     res.end();
+     
+    } catch (error) {
+     console.log(error);
+     
+    }
+   }
+
+
+export async function fetchCustomername(req, res) {
+    try {
+        const {name}=req.user;
+         res.status(200).send({ msg:name });
+        res.end()
+      } catch (error) {
+        res.status(404).send(error);
+      }
+}
