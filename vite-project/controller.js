@@ -264,10 +264,11 @@ export async function userLogin(req, res) {
 
 export async function fetchCustomername(req, res) {
     try {
-        const {name}=req.user;
+        const { name}=req.user;
          res.status(200).send({ msg:name });
         res.end()
       } catch (error) {
         res.status(404).send(error);
       }
 }
+
