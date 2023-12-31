@@ -40,6 +40,12 @@
     background-color: transparent;
     border: none;
 }
+.cartoffcanvas{
+    background-color: transparent;
+    border: none;
+    transition: 0s;
+}
+
 .offcanvas-start{
     transition: 0.9s;
     border: 1px solid rgb(247, 245, 245);
@@ -163,8 +169,174 @@
     color: black;
     
 }
+.products-customer{
+    width: 100%;
+    height: auto;
+    padding: 40px;
+    gap: 21px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.productcard{
+    width: 253px;
+    height: 500px;
+    cursor: pointer;
 
+    /* background-color: aqua; */
+}
+.productimg img{
+    width: 253px;
+}
+.productname{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-size: 12px;
+    word-spacing: 6px;
+    margin-top: 10px;
+    color: black;
+    font-weight: 700;
+}
+.productprice{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-size: 13px;
+    /* word-spacing: 6px; */
+    margin-top: 10px;
+    color: black;
+    font-weight: 700;
+}
+.productpricesub{
+    
+    font-size: 12px;
+    word-spacing: 6px;
+    margin-top: 10px;
+    color: black;
+}
+.productsize{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 7px;
+}
+.productsizesub{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-size: 14px;
+    font-weight: 700;
+    border: 1px solid rgb(237, 235, 235);
+    padding: 7px 15px;
+   
+}
+.productsizesub:hover{
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 1s;
+}
+.cartoffcanvas2{
+   width: 35%;
+}
+.carthead{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 25px;
+   display: flex;
+   justify-content: center;
 
+}
+.cartheadborderbottom{
+    border-bottom: 1px solid rgb(221, 220, 220);
+    width: 100%;
+    margin-bottom: 30px;
+}
+.cartheadborderbottom2{
+    border-bottom: 1px solid rgb(221, 220, 220);
+    width: 100%;
+
+}
+.cartbody{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    margin-bottom: 50px;
+}
+.cartbodyleft{
+    background-color: bisque;
+    width: 30%;
+    height: 200px;
+}
+.cartbodyright{
+    width: 70%;
+    height: 200px;
+    padding-left: 20px;
+}
+.cartbodyleft img{
+    width: 100%;
+    height: 200px;
+}
+.cartproductname{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.select3{
+    font-size: 12px;
+    width: auto;
+	height: 40px;
+	padding: 0 0 0 16px;
+	outline: none;
+	background-color: #F2F2F2;
+	border: 1px solid #e5e5e500;
+	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);	
+	font-family: 'Julius Sans One', sans-serif;
+    margin-bottom: 20px;
+}
+.removecart button{
+    width: 100%;
+    background-color:transparent;
+    border: 1px solid black;
+    color:black;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 30px;
+    font-size: 11px;
+}
+
+.cartbtn{
+    display: flex;
+    width: 100%;
+    gap: 50px;
+}
+.total{
+    margin-top: 20px;
+    font-family:'Julius Sans One', sans-serif ;
+    font-size: 17px;
+    
+}
+.totalmain{
+    display: flex;
+    justify-content: space-between;
+    padding:0px 30px;
+}
+.total2{
+    font-family:'Julius Sans One', sans-serif ;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.link4{
+    color: black;
+}
+.link4:hover{
+    color: black;
+}
+.catogory2{
+    margin: auto;
+    text-align: center;
+    font-family:'Julius Sans One', sans-serif ;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    width: 200px;
+    padding: 5px;
+    border-radius: 30px;
+    margin-top: 30px;
+}
 
 @media (min-width:300px) and (max-width:576px){
 

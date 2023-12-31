@@ -14,6 +14,11 @@ import Viewproducts from './components/viewproducts/Viewproducts'
 import Editproduct from './components/editproduct/Editproduct'
 import Productfulldetails from './components/productfulldetails/Productfulldetails'
 import Userreg from './components/userreg/Userreg'
+import Productdetailscustomer from './components/productdetailscustomer/productdetailscustomer'
+import Cart from './components/cart/Cart'
+import Offcanvas from './components/offcanvas/Offcanvas'
+import Wishlist from './components/wishlist/Wishlist'
+
 
 
 
@@ -39,6 +44,11 @@ function App() {
      <Route path='/editproduct/:id' Component={Editproduct}/>
      <Route path='/productfulldetails/:id' Component={Productfulldetails}/>
      <Route path='/userreg' Component={Userreg}/>
+     <Route path='/productdetailscustomer/:id' Component={Productdetailscustomer}/>
+     <Route path='/cart/:id' Component={Cart}/>
+     <Route path='/wishlist/:id' Component={Wishlist}/>
+     
+     
 
      
 

@@ -6,11 +6,16 @@ import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
 import { VscClose } from "react-icons/vsc";
 import { Link } from 'react-router-dom';
+// import Offcanvas from '../offcanvas/Offcanvas';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './home.css'
 
 const Home = () => {
+
+  // const navigate=useNavigate()
   const [name, setUser] = useState("");
+  const [id, setId] = useState("");
   const checkLocalStorage = async () => {
     try {
       const admintoken = JSON.parse(localStorage.getItem("usertoken"));
@@ -26,6 +31,7 @@ const Home = () => {
         }
       );
       setUser(res.data.msg);
+      setId(res.data.id);
     } catch (error) {
       console.error(error);
     } 
@@ -35,11 +41,20 @@ const Home = () => {
     checkLocalStorage();
   }, []);
 
+  const [getProducts,setProducts]=useState([])
+  
+  const getAllProducts=async()=>{
+    const res=await axios.get("http://localhost:3005/snitch/getAllProducts") 
+    setProducts(res.data)
+    console.log(getProducts);
+  }
+  useEffect(()=>{
+    getAllProducts()
+  },[])
 
 
 
-
-  return (
+return (
     <div>
       
       
@@ -54,6 +69,7 @@ const Home = () => {
     <div className='offcanvas-header2'>
         <div className='userlogo'><CiUser /></div>
         <div className='userlogotext' ><Link className='link5' >{name} </Link></div>
+        <div className='userlogotext' ><Link className='link5' > </Link></div>
        
     
     </div>
@@ -94,8 +110,12 @@ const Home = () => {
     
     <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
     <div><CiSearch /></div>
-    <div><CiHeart /></div>
-    <div><PiHandbagSimpleThin /></div>
+    <Link className='link4' to={`/wishlist/${id}`}><div><CiHeart /></div></Link>
+    
+    <Link className='link4' to={`/cart/${id}`}><div><PiHandbagSimpleThin /></div></Link>
+
+    
+  
    
    </div>
   </div>
@@ -131,6 +151,102 @@ const Home = () => {
     <span className="visually-hidden">Next</span>
   </button>
 </div>
+
+
+
+{/* /////////////////////// */}
+
+<div className='catogory2'>Casual Shirts</div>
+
+<div className="products-customer">
+
+{
+   getProducts.filter((data) => data.categoryname === 'Casual Shirts')
+   .map((data, index) => (
+
+<Link  key={index} to={`/productdetailscustomer/${data._id}`} className='link5'>
+<div className="productcard">
+   <div className='productimg' >
+     <img src={data.banner} alt="" />
+   </div>
+   <div className='productname'>
+   {data.productname}
+   </div>
+   <div className='productprice'>
+   R<span className='productpricesub'>s</span> . {data.price}
+   </div>
+   <div className='productsize'>
+     <div className='productsizesub'>S</div>
+     <div className='productsizesub'>M</div>
+     <div className='productsizesub'>L</div>
+     <div className='productsizesub'>XL</div>
+
+   </div>
+ </div>
+</Link>
+   ))
+}
+
+
+
+
+
+ 
+
+</div>
+
+<div className='catogory2'>Casual pants</div>
+
+<div className="products-customer">
+
+{
+   getProducts.filter((data) => data.categoryname === 'Casual Pants')
+   .map((data, index) => (
+
+<Link  key={index} to={`/productdetailscustomer/${data._id}`} className='link5'>
+<div className="productcard">
+   <div className='productimg' >
+     <img src={data.banner} alt="" />
+   </div>
+   <div className='productname'>
+   {data.productname}
+   </div>
+   <div className='productprice'>
+   R<span className='productpricesub'>s</span> . {data.price}
+   </div>
+   <div className='productsize'>
+     <div className='productsizesub'>S</div>
+     <div className='productsizesub'>M</div>
+     <div className='productsizesub'>L</div>
+     <div className='productsizesub'>XL</div>
+
+   </div>
+ </div>
+</Link>
+   ))
+}
+
+
+
+
+
+ 
+
+</div>
+
+
+{/* /////////////////// */}
+
+
+
+    
+
+  
+      
+
+
+
+
 
 
 {/* /////////////// footer////////// */}

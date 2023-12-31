@@ -50,7 +50,7 @@ theme: "light",
      localStorage.setItem("usertoken", JSON.stringify(token));
      success(setTimeout(()=>{
          navigate("/home");
-     },3000),{ state: { name } });
+     },3000),{ state: { name} });
      } else {
      alert(data.msg);
      }

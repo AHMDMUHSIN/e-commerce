@@ -151,8 +151,11 @@ const Products = () => {
     <div className="input_container">
       <label  className="input_label">Category Name</label>
       <select name="categoryname" id="category"  className="select" onChange={GetData}>
+      <option value="">Select category</option>
      {
       getCat.map((data,index)=>
+         
+      
         <option className='option' value={data.category} key={index}>{data.categoryname}</option>
      )
      }

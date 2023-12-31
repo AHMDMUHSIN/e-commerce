@@ -33,12 +33,27 @@ router.route("/getCatWiseProducts/:categoryname").get(controller.getCategoryWise
 router.route("/getProduct/:id").get(controller.getProduct);
 router.route("/editProdect/:id").patch(controller.editProdect);
 router.route("/deleteproduct/:id").delete(controller.deleteProduct);
+router.route("/getAllProducts").get(controller.getAllProducts);
 
 ////////////CUSTOMER///////////
 
 router.route("/addcustomer").post(controller.addCustomer);
 router.route("/userlogin").post(controller.userLogin);
 router.route("/fetchcustomername").post(Auth,controller.fetchCustomername);
+
+
+/////////////CART/////
+
+router.route("/addToCart").post(controller.AddToCart);
+router.route("/getCartProduct/:id").get(controller.getCartProduct);
+router.route("/delCartProduct/:id").delete(controller.delCartProduct);
+router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
+
+/////////////wishlist//////////
+
+router.route("/addToWhishList").post(controller.AddToWishList);
+router.route("/getWishlistProduct/:id").get(controller.getWishlistProduct);
+router.route("/delWishListProduct/:id").delete(controller.delwishListProduct);
 
 
 

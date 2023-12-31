@@ -4,6 +4,8 @@ import admin_schema from './admin.model.js'
 import category_schema from './category.model.js'
 import product_schema from './product.model.js'
 import customer_schema from './customer.model.js'
+import cart_schema from './cart.model.js'
+import wishlist_schema  from './whishlist.model.js'
 
 
  
@@ -184,6 +186,11 @@ export async function AddProducts(req, res) {
     console.log(task);
     res.status(200).send(task)
   }
+
+  export async function getAllProducts(req,res){
+    let task=await product_schema.find()
+    res.status(200).send(task)
+  }
   
   export async function editProdect(req, res) {
     const { id } = req.params;
@@ -250,7 +257,8 @@ export async function userLogin(req, res) {
      const success =await bcrypt.compare(password, usr.password)
      console.log(success);
      if (success !== true) return res.status(404).send("username or password doesnot exist");
-     const token = await sign({ name }, process.env.JWT_KEY, { expiresIn: "24h" })
+     const { _id } = usr;
+     const token = await sign({ name,_id }, process.env.JWT_KEY, { expiresIn: "24h" })
      console.log(token);
      res.status(200).send({ msg: "successfullly login", token })
      res.end();
@@ -264,11 +272,91 @@ export async function userLogin(req, res) {
 
 export async function fetchCustomername(req, res) {
     try {
-        const { name}=req.user;
-         res.status(200).send({ msg:name });
+        const { name,_id}=req.user;
+         res.status(200).send({ msg:`${name}`,id:`${_id}`});
         res.end()
       } catch (error) {
         res.status(404).send(error);
       }
 }
 
+////////////cart////////////
+
+export async function AddToCart(req, res) {
+    try {
+      const { ...productdetails } = req.body;
+      const task = await cart_schema.create({ ...productdetails });
+      console.log(task);
+      res.status(200).send(task);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    }
+  }
+
+  export async function getCartProduct(req,res){
+    const { id }=req.params;
+    console.log(id);
+    let task=await cart_schema.find({ cust_id:id })
+    console.log(task);
+    res.status(200).send(task)
+  }
+
+  export function delCartProduct(req,res)
+{
+    const{id}=req.params;
+    const data=cart_schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)          
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
+
+export function deleteAllProducts(req,res)
+{
+    const{id}=req.params;
+    const data=cart_schema.deleteMany({cust_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)          
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
+
+
+
+
+
+///////////////wishlist///////////
+
+export async function AddToWishList(req, res) {
+    try {
+      const { ...productdetails } = req.body;
+      const task = await wishlist_schema.create({ ...productdetails });
+      console.log(task);
+      res.status(200).send(task);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal Server Error");
+    }
+  }
+
+  export async function getWishlistProduct(req,res){
+    const { id }=req.params;
+    console.log(id);
+    let task=await wishlist_schema.find({ cust_id:id })
+    console.log(task);
+    res.status(200).send(task)
+  }
+
+  export function delwishListProduct(req,res)
+{
+    const{id}=req.params;
+    const data=wishlist_schema.deleteOne({_id:id})
+    data.then((resp)=>{
+        res.status(200).send(resp)          
+    }).catch((error)=>{
+        res.status(404).send(error)
+    })
+}
