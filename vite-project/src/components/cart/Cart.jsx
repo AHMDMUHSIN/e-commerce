@@ -1,15 +1,9 @@
 import React,{ useEffect, useState } from 'react'
 import './cart.scss'
-import { Link } from 'react-router-dom';
-import { HiMiniBars3CenterLeft } from "react-icons/hi2"
-import { CiUser } from "react-icons/ci";
-import { CiSearch } from "react-icons/ci";
-import { CiHeart } from "react-icons/ci";
-import { PiHandbagSimpleThin } from "react-icons/pi";
-import { VscClose } from "react-icons/vsc";
 import {  useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
+import Navbar  from '../navbar/Navbar';
 
 const Cart = () => {
 
@@ -58,7 +52,7 @@ const Cart = () => {
             // Delete all products with the same cust_id
             await axios.delete(`http://localhost:3005/snitch/delAlltProduct/${id}`);
             alert("Order Placed");
-            navigate("/home")
+            navigate("/")
           } catch (error) {
             console.error("Error deleting products:", error);
             // alert("An error occurred while deleting products");
@@ -90,63 +84,7 @@ const Cart = () => {
   return (
     <div>
 
-<nav className="navbar navbar-light  navbar-main">
-  <div className='navbarcontent'>
-   
-   <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
-   </div></button>
-
-<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div className="offcanvas-header">
-    <div className='offcanvas-header2'>
-        <div className='userlogo'><CiUser /></div>
-        <div className='userlogotext' ><Link className='link5' >{name} </Link></div>
-       
-    
-    </div>
-    
-    <button type="button" className='homebtn' data-bs-dismiss="offcanvas" ><VscClose /></button>
-  </div>
-  <div className='offcanvas-borderbottom' ></div>
-  <div className="offcanvas-body">
-   <div className='offcanvas-body-content'>NEW ARRAIVALS</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>MOST TRENDING</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>SHOP 
-   </div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>TRACK ORDER</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content2main'>
-   <div className='offcanvas-body-content2'>PLACE A </div>
-   <div className='offcanvas-body-content2'>RETURN  / EXCHANGE</div>
-   <div className='offcanvas-body-content2'>REQUEST</div>
-   </div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>CUSTOMER SUPPORT</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>VISIT STORE</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>RELOVE</div>
-   <div className='offcanvas-borderbottom' ></div>
-  </div>
-</div>
-
-
-
-
-   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
-   <div className='homeicons'>
-    
-    <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
-    <div><CiSearch /></div>
-    <div><CiHeart /></div>
-    <div><PiHandbagSimpleThin /></div>
-   
-   </div>
-  </div>
-</nav>
+<Navbar/>
 
             
       <div className="cartmain">
@@ -154,43 +92,54 @@ const Cart = () => {
       <div className='carthead'>Cart</div>
       <div className='cartheadbarder1'></div>
 
-     {
-        getPrdct.map((data,index)=>
+      {getPrdct.length === 0 ? (
+                   <>
+                    {/* <p className="no-items-message">No items in the cart</p> */}
+                    <div className="no-items-message">
+                    <div>Cart is empty !</div>
+                    <div className='shp-now-btn1' ><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
+                    </div>
+                   </>
+                ) : (
+                    <>
+                        {getPrdct.map((data, index) => (
+                          <div key={index}>
+                          <div   className='cartbody'>
+                          <div className='cartbodyleft2'>
+                              <div className="cartbanner">
+                                  <img src={data.banner} alt="" />
+                              </div>
+                          
+                          </div>
+                          <div className='cartbodyright2'>
+                          <div className='cartproductname'>{data.productname}</div>
+                          <div className='cartproductname'>Size : {data.size}</div>
+                          <div className='cartproductname'>Price : {data.price}</div>
+                          
+                          <select onChange={(e) => qty(e, index)}  className='select3' name="cars" id="cars">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          </select>
+                          
+                          <div className='removecart'><button onClick={()=>delCartPrdct(data._id)} >Remove </button></div>
+                          
+                          </div>
+                          
+                          
+                          
+                          </div>
+                          <div className='cartheadbarder2'></div>
+                          </div>
+                        ))}
+                    </>
+                )}
+  
+     
 
-<div key={index}>
-<div   className='cartbody'>
-<div className='cartbodyleft2'>
-    <div className="cartbanner">
-        <img src={data.banner} alt="" />
-    </div>
-
-</div>
-<div className='cartbodyright2'>
-<div className='cartproductname'>{data.productname}</div>
-<div className='cartproductname'>Size : {data.size}</div>
-<div className='cartproductname'>Price : {data.price}</div>
-
-<select onChange={(e) => qty(e, index)}  className='select3' name="cars" id="cars">
-<option value="1">1</option>
-<option value="2">2</option>
-<option value="3">3</option>
-<option value="4">4</option>
-</select>
-
-<div className='removecart'><button onClick={()=>delCartPrdct(data._id)} >Remove </button></div>
-
-</div>
-
-
-
-</div>
-<div className='cartheadbarder2'></div>
-</div>
-
-
-
-        )
-     }
+    
+      
 
 
 <div className='totalmain2'>

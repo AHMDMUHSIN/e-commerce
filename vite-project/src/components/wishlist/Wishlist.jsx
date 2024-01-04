@@ -1,20 +1,19 @@
 import React , { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Link , useParams} from 'react-router-dom';
-import { HiMiniBars3CenterLeft } from "react-icons/hi2"
+import { useParams} from 'react-router-dom';
 import { CiUser } from "react-icons/ci";
-import { CiSearch } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
-import { VscClose } from "react-icons/vsc";
 import { CiLocationOn } from "react-icons/ci";
 import { CiSquareRemove } from "react-icons/ci";
 import './wishlist.scss'
+import Navbar from '../navbar/Navbar';
 
 const Wishlist = () => {
 
     const { id } = useParams();
     const [getPrdct, setProdct] = useState([]);
+   
 
     const [name, setUser] = useState("");
   const checkLocalStorage = async () => {
@@ -51,6 +50,8 @@ const Wishlist = () => {
         getPrdctDetails();
     }, []);
 
+  
+
 
     const delProduct = async (id) => {
         const userConfirmed = window.confirm("Are you sure you want to delete this product from the wishlist?");
@@ -69,65 +70,12 @@ const Wishlist = () => {
 
 
 
+
+
   return (
     <div>
-      <nav className="navbar navbar-light  navbar-main">
-  <div className='navbarcontent'>
-   
-   <button className='homebtn' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"> <div><HiMiniBars3CenterLeft />
-   </div></button>
-
-<div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div className="offcanvas-header">
-    <div className='offcanvas-header2'>
-        <div className='userlogo'><CiUser /></div>
-        <div className='userlogotext' ><Link className='link5' >{name} </Link></div>
-       
-    
-    </div>
-    
-    <button type="button" className='homebtn' data-bs-dismiss="offcanvas" ><VscClose /></button>
-  </div>
-  <div className='offcanvas-borderbottom' ></div>
-  <div className="offcanvas-body">
-   <div className='offcanvas-body-content'>NEW ARRAIVALS</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>MOST TRENDING</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>SHOP 
-   </div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>TRACK ORDER</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content2main'>
-   <div className='offcanvas-body-content2'>PLACE A </div>
-   <div className='offcanvas-body-content2'>RETURN  / EXCHANGE</div>
-   <div className='offcanvas-body-content2'>REQUEST</div>
-   </div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>CUSTOMER SUPPORT</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>VISIT STORE</div>
-   <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>RELOVE</div>
-   <div className='offcanvas-borderbottom' ></div>
-  </div>
-</div>
-
-
-
-
-   <div className='snitchlogo'><img src="../download.png" alt="" /></div>
-   <div className='homeicons'>
-    
-    <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
-    <div><CiSearch /></div>
-    <div><CiHeart /></div>
-    <div><PiHandbagSimpleThin /></div>
-   
-   </div>
-  </div>
-</nav>
+     
+     <Navbar/>
 
      <div className="wishlistmain">
 
@@ -176,7 +124,8 @@ const Wishlist = () => {
                         
                         <div className='wishlistitemimg'><img src={data.banner} alt="" /></div>
                         <div className='wishlistitemprice'>RS . {data.price}</div>
-                        <select  className='select5' name="cars" id="cars">
+                        <select  className='select5' name="size" id="cars">
+                        <option value="">Select size</option>
     <option value="s">S</option>
     <option value="m">M</option>
     <option value="l">L</option>
@@ -188,7 +137,7 @@ const Wishlist = () => {
     <option value="3">3</option>
     <option value="4">4</option>
     </select>
-    <div className='removecart3'><button >ADD to cart</button></div>
+    <div className='removecart3'><button  >ADD to cart</button></div>
                     </div>
 
 

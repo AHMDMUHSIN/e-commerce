@@ -38,6 +38,7 @@
 .cartbodyleft2 img{
     width: 100%;
   height: 200px;
+  min-width: 130px;
 
 }
 .totalmain2{
@@ -69,4 +70,22 @@
     margin-top: 50px;
     margin-bottom: 50px;
     
+}
+.no-items-message{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-family:'Julius Sans One', sans-serif ;
+   font-size: 20px;
+   margin-top: 5%;
+   margin-bottom: 5%;
+
+}
+.shp-now-btn{
+    color: black;
+    font-size: 14px;
+   
+}
+.shp-now-btn1{
+    margin-top: 20px;
 }

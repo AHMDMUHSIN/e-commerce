@@ -42,7 +42,7 @@ const Forgetadminpassword = () => {
     
       if(res.status===200){
         success(setTimeout(()=>{
-            navigate("/");
+            navigate("/adminlogin");
         },3000));
       }
       console.log(res.status);

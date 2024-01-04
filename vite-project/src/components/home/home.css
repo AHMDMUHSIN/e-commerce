@@ -6,10 +6,15 @@
     /* height: 110px; */
     border-bottom: 1px solid rgb(238, 237, 237);
     padding: 30px;
-    display: flex;
+   
+   
+
+    
+   
     
 
 }
+
 .navbarcontent{
    
     height: 50px;
@@ -18,14 +23,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
 }
 .snitchlogo img{
-    width: 40%;
+    width: 90%;
 }
 .snitchlogo{
-    display: flex;
-    justify-content: center;
-    padding-left: 6%;
+   
+    width: 200px;
+    height: 50px;
+    margin-left: 9%;
+    
+    
 
    
 }
@@ -85,6 +94,8 @@
     font-size: 15px; 
     letter-spacing: 1px;
     padding: 18px 0px;
+    cursor: pointer;
+
 }
 .offcanvas-body{
     padding:0px;
@@ -100,6 +111,12 @@
     display: flex;
     flex-direction: column;
     gap: 3px;
+}
+.offcanvas-body-content span{
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+   
 }
 
 .carousel-item img{
@@ -289,7 +306,7 @@
     margin-bottom: 20px;
 }
 .removecart button{
-    width: 100%;
+    padding:0px 30px;
     background-color:transparent;
     border: 1px solid black;
     color:black;
@@ -336,6 +353,17 @@
     padding: 5px;
     border-radius: 30px;
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+   
+}
+.acheivement{
+    display: flex;
+    justify-content: center;
+}
+.acheivement img{
+    margin-top: 8%;
+    width: 94%;
 }
 
 @media (min-width:300px) and (max-width:576px){
@@ -347,8 +375,7 @@
     
     }
     .snitchlogo img{
-        width: 100px;
-        height: 35px;
+        width: 80%;
     }
     .footer-contents{
         width: 100%;

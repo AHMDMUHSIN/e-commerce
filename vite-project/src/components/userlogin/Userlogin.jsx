@@ -49,7 +49,7 @@ theme: "light",
      const token = data.token;
      localStorage.setItem("usertoken", JSON.stringify(token));
      success(setTimeout(()=>{
-         navigate("/home");
+         navigate("/");
      },3000),{ state: { name} });
      } else {
      alert(data.msg);

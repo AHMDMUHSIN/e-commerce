@@ -30,14 +30,14 @@ function App() {
     <>
      <BrowserRouter>
      <Routes>
-     <Route path='/' Component={AdminLogin}/>
+     <Route path='/' Component={Home}/>
+     <Route path='/adminlogin' Component={AdminLogin}/>
      <Route path='/forgetadminusername' Component={Forgetadminusername}/>
      <Route path='/forgetadminpassword' Component={Forgetadminpassword}/>
      <Route path='/adminhome' Component={Adminhome}/>
      <Route path='/category' Component={Category}/>
      <Route path='/products' Component={Products}/>
      <Route path='/editcategory/:id' Component={Editcategory}/>
-     <Route path='/home' Component={Home}/>
      <Route path='/userlogin' Component={Userlogin}/>
      <Route path='/adminregister' Component={Adminregister}/>
      <Route path='/viewproducts/:categoryname' Component={Viewproducts}/>

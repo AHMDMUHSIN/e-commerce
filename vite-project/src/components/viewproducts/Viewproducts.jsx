@@ -53,7 +53,7 @@ const Viewproducts = () => {
                     <div className="img-info">
                       <div className="info-inner">
                         <span className="p-name">{data.productname}</span>
-                        <span className="p-company">{data.description}</span>
+                        {/* <span className="p-company">{data.description}</span> */}
                       </div>
                       <div className="a-size">Available Size &  Stocks : 
                        <div><span className="size">S : {data?.stock?.size_S}</span></div>

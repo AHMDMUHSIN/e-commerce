@@ -1,6 +1,7 @@
 .productfulldetails{
     height: auto;
     width: 100%;
+    margin-bottom: 7%;
 }
 .productfulldetailssub{
     
@@ -53,6 +54,13 @@
     font-size: 30px; 
     font-weight: 700;
     color: black;
+    margin-bottom: 5px;
+}
+.righttext-description{
+    font-family: 'Julius Sans One', sans-serif;  
+    font-size: 15px; 
+    font-weight: 500;
+    color: black;
 }
 .price{
     font-family: 'Julius Sans One', sans-serif;  
@@ -84,6 +92,9 @@
 .addtowishlist{
     margin-top: 10px;
 }
+.addtowishlist2{
+    margin-top: 10px;
+}
 .addtowishlist button{
     background-color: transparent;
     width: 100%;
@@ -98,12 +109,27 @@
     justify-content: center;
     gap: 20px;
 }
+.addtowishlist2 button{
+    background-color: transparent;
+    width: 100%;
+    border: 1px solid black;
+    color: black;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 45px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 .addtowishlisticon{
     color: black;
     font-size: 30px;
 }
 .offermain{
-    padding: 20px 0px;
+    padding: 25px 0px;
 }
 .offer{
     display: flex;
@@ -122,7 +148,74 @@
 	border: 1px solid #e5e5e500;
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);	
 	font-family: 'Julius Sans One', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+}
+.codcheck{
+    margin-top: 50px;
+    padding: 15px;
+    width: 100%;
+    height: 150px;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+}
+.codcheckhead{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 13px;
+}
+.codcheckinput input::placeholder{
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10px;
+    padding: 10px;
+}
+.codcheckinput{
+    width: 83%;
+}
+.codcheckinput input{
+    width: 100%;
+    height: 40px;
+}
+.codchecksub{
+    display: flex;
+  width: 100%;
+}
+.codcheckbtn{
+    width: 15%;
+    
+}
+.codcheckbtn button{
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 4px;
+    color: white;
+    font-family:'Julius Sans One', sans-serif ;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    width: 100%;
+
+}
+.gotocart{
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+.gotocart:hover{
+    color: white;
+}
+.gotocart2{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.gotocart2:hover{
+    color: black;
 }
 
 

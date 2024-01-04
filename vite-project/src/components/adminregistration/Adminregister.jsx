@@ -57,7 +57,7 @@ const Adminregister = () => {
        else{
            success();
            setTimeout(()=>{
-               navigate("/");
+               navigate("/adminlogin");
            },3000);
        }
 
@@ -115,7 +115,7 @@ const Adminregister = () => {
 
 
 
-   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
+   <div className='snitchlogo'><img src="../download.png" alt="" /></div>
    <div className='homeicons'>
     
     <div><CiUser /></div>

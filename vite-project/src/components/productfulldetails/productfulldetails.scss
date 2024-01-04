@@ -68,13 +68,12 @@
       display: flex;
       justify-content: center;
       float: left;
-
-
       
-      img { 
+
+      .img2 img{
+        background-color: #aedaa6;
+        width: 290px;
         height: 360px; 
-        width: 100%;
-        padding: 10px;
       }
       
     }
@@ -159,3 +158,22 @@
   }
   
 }
+
+@media (min-width:300px) and (max-width:576px){
+
+
+	
+
+  }
+  @media (min-width:576px) and (max-width:768px){
+
+
+	
+
+  }
+  @media (min-width:768px) and (max-width:992px){
+
+
+	
+
+  }
