@@ -132,7 +132,7 @@ const Cart = () => {
                           <div className='cartheadbarder2'></div>
                           </div>
                         ))}
-                     </>
+                    </>
                 )}
   
      
