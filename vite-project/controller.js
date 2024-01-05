@@ -328,7 +328,6 @@ export function deleteAllProducts(req,res)
 
 
 
-
 ///////////////wishlist///////////
 
 export async function AddToWishList(req, res) {
@@ -361,3 +360,20 @@ export async function AddToWishList(req, res) {
         res.status(404).send(error)
     })
 }
+
+
+/////////////////////Quantity////////////
+
+
+export async function editQuantity(req, res) {
+  const { prodId } = req.params;
+  try {
+      const updatedData = req.body;
+      const value = await cart_schema.updateOne({ prod_id: prodId }, { $set: updatedData });
+      res.status(200).send(value);
+  } catch (error) {
+      res.status(404).send(error);
+  }
+}
+
+

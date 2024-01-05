@@ -12,7 +12,9 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
+
 const Navbar = () => {
+
 
   const success = () =>
   toast.success("Logout Succesful",{
@@ -25,6 +27,7 @@ draggable: true,
 progress: undefined,
 theme: "light",
   })
+
      
     // const navigate=useNavigate()
     const [name, setUser] = useState("");
@@ -64,6 +67,21 @@ theme: "light",
         
        
       };
+
+
+      const gotoCart = () => {
+        if (id === "") {
+          alert(" Please Login")
+        }
+      }
+
+
+      ///////////////////////
+
+    
+      
+      
+      
   
 
 
@@ -140,9 +158,24 @@ theme="light"
     
     <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
     <div><CiSearch /></div>
-    <Link className='link4' to={`/wishlist/${id}`}><div><CiHeart /></div></Link>
+
+    <div>
+    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><CiHeart /></div></Link>) : (  <Link className='link4' to={`/wishlist/${id}`}><div><CiHeart /></div></Link>)}
+ 
+    </div>
+   
+   
+
+    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><PiHandbagSimpleThin /></div></Link>) : (  <Link className='link4' to={`/cart/${id}`}><div><PiHandbagSimpleThin /></div></Link>)}
+  
     
-    <Link className='link4' to={`/cart/${id}`}><div><PiHandbagSimpleThin /></div></Link>
+   {/* ///////////////////////// */}
+
+ 
+
+  
+
+   
 
     
   

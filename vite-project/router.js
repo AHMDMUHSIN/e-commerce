@@ -55,6 +55,10 @@ router.route("/addToWhishList").post(controller.AddToWishList);
 router.route("/getWishlistProduct/:id").get(controller.getWishlistProduct);
 router.route("/delWishListProduct/:id").delete(controller.delwishListProduct);
 
+//////////////quantity//////////////
+
+router.route("/updateCartItem/:prodId").patch(controller.editQuantity);
+
 
 
 export default router;

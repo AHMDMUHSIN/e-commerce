@@ -13,6 +13,25 @@ const Cart = () => {
     const navigate=useNavigate()
     const [totalPrice,setTotalPrice]=useState(0)
     const [getPrdct,setProdct]=useState([])
+   
+  
+    useEffect(() => {
+      const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price * product.quantity), 0);
+      setTotalPrice(totalPriceSum);
+    }, [getPrdct]);
+  
+    const updateQuantity=async(id,e)=>{
+      try {
+        const newQuantity = parseInt(e);
+        console.log(newQuantity);
+        const res=await axios.patch(`http://localhost:3005/snitch/updateCartItem/${id}`,{quantity:newQuantity})
+        console.log(res.data);
+        getPrdctDetails()
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     const getPrdctDetails=async()=>{
       const res=await axios.get(` http://localhost:3005/snitch/getCartProduct/${id}`)
       // console.log(res.data);
@@ -22,27 +41,6 @@ const Cart = () => {
     useEffect(()=>{
       getPrdctDetails()
     },[])
-  
-    useEffect(() => {
-      const totalPriceSum = getPrdct.reduce((sum, product) => sum + Number(product.price), 0);
-      setTotalPrice(totalPriceSum);
-    }, [getPrdct]);
-  
-    const qty = (e, index) => {
-      const selectedQuantity = parseInt(e.target.value, 10);
-      const productPrice = getPrdct[index].price;
-     
-      if (!isNaN(productPrice)) {
-        console.log(getPrdct[index].price);
-        const updatedPrice = selectedQuantity * productPrice
-        console.log(updatedPrice);
-        const updatedGetPrdct = [...getPrdct];
-        updatedGetPrdct[index].price = updatedPrice;
-        setProdct(updatedGetPrdct);
-      } else {
-        console.error('Invalid product price:', productPrice);
-      }
-    };
 
     const BuyNow = async (e) => {
         e.preventDefault();
@@ -116,7 +114,8 @@ const Cart = () => {
                           <div className='cartproductname'>Size : {data.size}</div>
                           <div className='cartproductname'>Price : {data.price}</div>
                           
-                          <select onChange={(e) => qty(e, index)}  className='select3' name="cars" id="cars">
+                          <select  onChange={(e)=>{updateQuantity(data.prod_id,e.target.value)}}  className='select3' name="cars" id="cars">
+                          <option >Selected Quantity  : {data.quantity}</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
                           <option value="3">3</option>
