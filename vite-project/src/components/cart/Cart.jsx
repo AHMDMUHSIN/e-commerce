@@ -34,7 +34,7 @@ const Cart = () => {
 
     const getPrdctDetails=async()=>{
       const res=await axios.get(` http://localhost:3005/snitch/getCartProduct/${id}`)
-      // console.log(res.data);
+      
       setProdct(res.data)
       
     }
