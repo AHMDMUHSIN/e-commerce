@@ -1,5 +1,6 @@
 import React , { useEffect ,useState} from 'react'
 import { Link } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './home.css'
 import Navbar from '../navbar/Navbar';
@@ -15,6 +16,19 @@ const Home = () => {
   useEffect(()=>{
     getAllProducts()
   },[])
+
+  // const history = useHistory();
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   const inputValue = e.target.elements.inputField.value; // Assuming inputField is the input field's name/id
+
+  //   history.push(`/nextPage?value=${inputValue}`);
+  // };
+
+
+
+
 
 
 
@@ -140,6 +154,13 @@ return (
  
 
 </div>
+
+{/* <form onSubmit={handleFormSubmit}>
+      <input type="text" name="inputField" />
+      <button type="submit">Submit</button>
+    </form> */}
+
+   
 
 
 

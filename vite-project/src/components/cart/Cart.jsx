@@ -137,10 +137,7 @@ const Cart = () => {
   
      
 
-    
-      
-
-
+  {getPrdct==""?(""):(<div>
 <div className='totalmain2'>
 <div className='total'>total </div>
 <div className='total2'>RS . {totalPrice ? totalPrice : 0}</div>
@@ -155,13 +152,10 @@ const Cart = () => {
 
 <div className='totalmain2'>
 <div className='total2'>subtotal</div>
-<div className='total2'>RS . {totalPrice ? totalPrice + 99 : 99}</div>
-</div>
-
-
-<div className='removecart2'><button onClick={BuyNow}>Place order</button></div>
-
-
+<div className='total2'>RS . {totalPrice ? totalPrice + 89 : 89}</div>
+</div></div>)}   
+      
+{getPrdct==""?(""):(<div className='removecart2'><button onClick={BuyNow}>Place order</button></div>)}
 
 
 
