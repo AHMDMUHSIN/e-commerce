@@ -155,6 +155,7 @@ const Cart = () => {
 <div className='total2'>RS . {totalPrice ? totalPrice + 89 : 89}</div>
 </div></div>)}   
       
+
 {getPrdct==""?(""):(<div className='removecart2'><button onClick={BuyNow}>Place order</button></div>)}
 
 
