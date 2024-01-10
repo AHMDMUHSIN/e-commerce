@@ -11,6 +11,7 @@ import axios from 'axios';
 // import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import './navbar.scss'
 
 
 const Navbar = () => {
@@ -32,6 +33,10 @@ theme: "light",
     // const navigate=useNavigate()
     const [name, setUser] = useState("");
     const [id, setId] = useState("");
+    const [getPrdct, setProdct] = useState([])
+    const [length,setLength]=useState(0)
+    const [getPrdct2, setProdct2] = useState([])
+    const [length2,setLength2]=useState(0)
     const checkLocalStorage = async () => {
       try {
         const usertoken = JSON.parse(localStorage.getItem("usertoken"));
@@ -75,9 +80,47 @@ theme: "light",
         }
       }
 
+      ///////////////cart-count//////////
 
-      ///////////////////////
 
+      useEffect(() => {
+        const getPrdctDetails = async () => {
+          try {
+            const res = await axios.get(`http://localhost:3005/snitch/getCartProduct/${id}`);
+            setProdct(res.data);
+            setLength(res.data.length);  // Update the length state after fetching data
+            
+          } catch (error) {
+            console.error("Error fetching cart products:", error);
+          }
+        };
+    
+        // Call the function when the component mounts or when the id changes
+        if (id) {
+          getPrdctDetails();
+        }
+      }, [id]); 
+
+      ///////////////wishlist-count//////////
+
+
+      useEffect(() => {
+        const getwishlistPrdctDetails = async () => {
+          try {
+            const res = await axios.get(`http://localhost:3005/snitch/getWishlistProduct/${id}`);
+            setProdct2(res.data);
+            setLength2(res.data.length);  // Update the length state after fetching data
+          } catch (error) {
+            console.error("Error fetching cart products:", error);
+          }
+        };
+    
+        // Call the function when the component mounts or when the id changes
+        if (id) {
+          getwishlistPrdctDetails();
+          
+        }
+      }, [id]); 
     
       
       
@@ -158,18 +201,18 @@ theme="light"
     
     <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
     <div><CiSearch /></div>
+    
 
     <div>
-    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><CiHeart /></div></Link>) : (  <Link className='link4' to={`/wishlist/${id}`}><div><CiHeart /></div></Link>)}
+    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><CiHeart /></div></Link>) : (  <Link className='link4' to={`/wishlist/${id}`}><div><CiHeart />{getPrdct2.length === 0?(""):( <div className='carttotal'>{length2}</div>)}</div></Link>)}
  
     </div>
    
    
 
-    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><PiHandbagSimpleThin /></div></Link>) : (  <Link className='link4' to={`/cart/${id}`}><div><PiHandbagSimpleThin /></div></Link>)}
-  
-    
-   {/* ///////////////////////// */}
+    {id === "" ? (  <Link className='link4' onClick={gotoCart}><div><PiHandbagSimpleThin /></div></Link>) : (  <Link className='link4' to={`/cart/${id}`}><div ><PiHandbagSimpleThin className='carticon' /> {getPrdct.length === 0?(""):( <div className='carttotal'>{length}</div>)}</div></Link>)}
+
+   
 
  
 

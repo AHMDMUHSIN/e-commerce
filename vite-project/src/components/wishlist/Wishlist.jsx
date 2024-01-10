@@ -6,6 +6,7 @@ import { CiHeart } from "react-icons/ci";
 import { PiHandbagSimpleThin } from "react-icons/pi";
 import { CiLocationOn } from "react-icons/ci";
 import { CiSquareRemove } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 import './wishlist.scss'
 import Navbar from '../navbar/Navbar';
 
@@ -111,7 +112,17 @@ const Wishlist = () => {
             <div className='username '> Good Afternoon! {name}</div>
             <div className="wishlistrightsub">
 
-                 {
+            {getPrdct.length === 0 ? (
+                   <>
+                   
+                    <div className="no-items-message">
+                    <div>wishlist is empty !</div>
+                    <div className='shp-now-btn1' ><Link className='shp-now-btn' to='/'>Shop Now</Link></div>
+                    </div>
+                   </>
+                ) : (
+                    <>
+                         {
                     getPrdct.map((data, index) =>(
 
                         <div className='wishlistitem' key={index} >
@@ -143,6 +154,41 @@ const Wishlist = () => {
 
                      ))
                  }
+                      </>
+                )}
+
+                 {/* {
+                    getPrdct.map((data, index) =>(
+
+                        <div className='wishlistitem' key={index} >
+                            <div className='removewishlistitem' onClick={()=>delProduct(data._id)}><CiSquareRemove /></div>
+                         
+                            <div className='wishlistitemhead'>{data.productname}</div>
+                        
+                           
+                           
+                        
+                        <div className='wishlistitemimg'><img src={data.banner} alt="" /></div>
+                        <div className='wishlistitemprice'>RS . {data.price}</div>
+                        <select  className='select5' name="size" id="cars">
+                        <option value="">Select size</option>
+    <option value="s">S</option>
+    <option value="m">M</option>
+    <option value="l">L</option>
+    <option value="xl">XL</option>
+    </select>
+                        <select  className='select4' name="cars" id="cars">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    </select>
+    <div className='removecart3'><button  >ADD to cart</button></div>
+                    </div>
+
+
+                     ))
+                 } */}
 
 
                
