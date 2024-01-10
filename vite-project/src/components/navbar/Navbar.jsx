@@ -8,7 +8,6 @@ import { VscClose } from "react-icons/vsc";
 import { CiLogout } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 import './navbar.scss'
