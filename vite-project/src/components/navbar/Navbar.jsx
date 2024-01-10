@@ -29,7 +29,6 @@ theme: "light",
   })
 
      
-    // const navigate=useNavigate()
     const [name, setUser] = useState("");
     const [id, setId] = useState("");
     const [getPrdct, setProdct] = useState([])
