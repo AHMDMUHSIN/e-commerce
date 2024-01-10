@@ -93,7 +93,7 @@ theme: "light",
           }
         };
     
-        // Call the function when the component mounts or when the id changes
+
         if (id) {
           getPrdctDetails();
         }
