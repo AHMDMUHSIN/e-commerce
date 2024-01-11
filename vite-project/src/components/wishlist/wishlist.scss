@@ -72,16 +72,20 @@ gap: 80px;
     font-size: 10px;
     font-weight: 700;
     color: black;
-   
-
-
+}
+.wishlistitemhead2{
+    font-family:'Julius Sans One', sans-serif ;
+    font-size: 9px;
+    font-weight: 700;
+    color: black;
+    margin-top: 5px;
 }
 .wishlistitemimg{
     margin-top: 10px;
 }
 .wishlistitemimg img{
-    width: 35%;
-    height: 100px;
+    width: 55%;
+    height: 150px;
 }
 .wishlistitemprice{
     font-family:'Julius Sans One', sans-serif ;
@@ -167,6 +171,13 @@ gap: 80px;
 }
 .wishlistleftbottomborder{
     border-bottom: 1px solid rgb(223, 221, 221);
+}
+.link7{
+    color: white;
+    text-decoration: none;
+}
+.link7:hover{
+    color: white;
 }
 
 

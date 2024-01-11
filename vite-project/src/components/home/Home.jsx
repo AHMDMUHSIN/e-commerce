@@ -1,9 +1,10 @@
 import React , { useEffect ,useState} from 'react'
 import { Link } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './home.css'
 import Navbar from '../navbar/Navbar';
+
+
 
 const Home = () => {
 
@@ -17,19 +18,8 @@ const Home = () => {
     getAllProducts()
   },[])
 
-  // const history = useHistory();
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   const inputValue = e.target.elements.inputField.value; // Assuming inputField is the input field's name/id
-
-  //   history.push(`/nextPage?value=${inputValue}`);
-  // };
-
-
-
-
-
+ 
+///////////////////////////
 
 
 return (
@@ -41,6 +31,11 @@ return (
 
 
 <Navbar/>
+
+
+ 
+
+
 
 
 {/* ///////////////  carousel///////// */}
@@ -76,6 +71,51 @@ return (
 
 
 {/* /////////////////////// */}
+
+<div id='newarrivals' className='catogory2'>New arrivals</div>
+<div className="products-customer">
+
+
+
+
+
+{
+   getProducts
+   .slice(-5)
+   .reverse()
+   .map((data, index) => (
+
+<Link  key={index} to={`/productdetailscustomer/${data._id}`} className='link5'>
+<div className="productcard">
+   <div className='productimg' >
+     <img src={data.banner} alt="" />
+   </div>
+   <div className='productname'>
+   {data.productname}
+   </div>
+   <div className='productprice'>
+   R<span className='productpricesub'>s</span> . {data.price}
+   </div>
+   <div className='productsize'>
+     <div className='productsizesub'>S</div>
+     <div className='productsizesub'>M</div>
+     <div className='productsizesub'>L</div>
+     <div className='productsizesub'>XL</div>
+
+   </div>
+ </div>
+</Link>
+   ))
+}
+
+
+ 
+
+</div>
+
+
+
+{/* //////////////// */}
 
 <div className='catogory2'>Casual Shirts</div>
 
@@ -175,7 +215,9 @@ return (
 
 
 
- <div className='footer-top-border'></div>
+
+
+ <div id='footer'  className='footer-top-border'></div>
 
  <div className='footer1'>
    <div className='footer-contents'>

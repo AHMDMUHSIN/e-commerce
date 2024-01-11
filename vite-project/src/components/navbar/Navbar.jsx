@@ -155,9 +155,9 @@ theme: "light",
   </div>
   <div className='offcanvas-borderbottom' ></div>
   <div className="offcanvas-body">
-   <div className='offcanvas-body-content'>NEW ARRAIVALS</div>
+   <div className='offcanvas-body-content'><a href="#newarrivals">NEW ARRAIVALS</a></div>
    <div className='offcanvas-borderbottom' ></div>
-   <div className='offcanvas-body-content'>SHOP 
+   <div className='offcanvas-body-content'><a href="">SHOP </a>
    </div>
    <div className='offcanvas-borderbottom' ></div>
    <div className='offcanvas-body-content'>TRACK ORDER</div>
@@ -172,8 +172,7 @@ theme: "light",
    <div className='offcanvas-borderbottom' ></div>
    <div className='offcanvas-body-content'>VISIT STORE</div>
    <div className='offcanvas-borderbottom' ></div>
-  
-   <div onClick={logoutAdmin} className='offcanvas-body-content'><span ><CiLogout /> </span>Log out</div>
+   {id === ""?(""):( <div>  <div onClick={logoutAdmin} className='offcanvas-body-content'><span ><CiLogout /> </span>Log out</div>
    <ToastContainer 
 				
 				position="top-right"
@@ -187,7 +186,23 @@ draggable
 pauseOnHover
 theme="light"
 				
-				/>
+				/></div>)}
+  
+   {/* <div onClick={logoutAdmin} className='offcanvas-body-content'><span ><CiLogout /> </span>Log out</div>
+   <ToastContainer 
+				
+				position="top-right"
+autoClose={1500}
+hideProgressBar
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+				
+				/> */}
   </div>
 </div>
 

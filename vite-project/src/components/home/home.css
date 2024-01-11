@@ -365,6 +365,9 @@
     margin-top: 8%;
     width: 94%;
 }
+#newarrivals{
+    margin-top: 5%;
+}
 
 @media (min-width:300px) and (max-width:576px){
 

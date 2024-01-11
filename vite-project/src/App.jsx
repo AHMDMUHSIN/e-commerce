@@ -16,7 +16,6 @@ import Productfulldetails from './components/productfulldetails/Productfulldetai
 import Userreg from './components/userreg/Userreg'
 import Productdetailscustomer from './components/productdetailscustomer/productdetailscustomer'
 import Cart from './components/cart/Cart'
-import Offcanvas from './components/offcanvas/Offcanvas'
 import Wishlist from './components/wishlist/Wishlist'
 
 

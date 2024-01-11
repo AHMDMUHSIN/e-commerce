@@ -135,20 +135,21 @@ const Wishlist = () => {
                         
                         <div className='wishlistitemimg'><img src={data.banner} alt="" /></div>
                         <div className='wishlistitemprice'>RS . {data.price}</div>
-                        <select  className='select5' name="size" id="cars">
+                        <div className='wishlistitemhead2'>{data.description}</div>
+                        {/* <select  className='select5' name="size" id="cars">
                         <option value="">Select size</option>
     <option value="s">S</option>
     <option value="m">M</option>
     <option value="l">L</option>
     <option value="xl">XL</option>
-    </select>
-                        <select  className='select4' name="cars" id="cars">
+    </select> */}
+                        {/* <select  className='select4' name="cars" id="cars">
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
-    </select>
-    <div className='removecart3'><button  >ADD to cart</button></div>
+    </select> */}
+    <div className='removecart3'><button  ><Link to={`/productdetailscustomer/${data._id}`} className='link7'>View details</Link></button></div>
                     </div>
 
 

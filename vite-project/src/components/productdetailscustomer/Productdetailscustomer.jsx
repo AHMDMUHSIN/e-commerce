@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { CiHeart } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import './productdetailscustomer.scss'
 import Navbar  from '../navbar/Navbar'
 import 'react-toastify/dist/ReactToastify.css';
@@ -26,9 +25,6 @@ theme: "light",
   })
 
 
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const receivedValue = searchParams.get('value');
     
     const [cartItems,setCartItems]=useState([])
     const [wishlistItems,setWishlistItems]=useState([])
@@ -216,7 +212,8 @@ theme: "light",
                         <div className='righttextborder1'></div>
 
                        <div className='offermain'>
-                       <div>Received Value: {receivedValue}</div>
+                      
+                      
                        <div className='offer'>
                             <div className='offerimg'><img src="../offer_icon-1_20x.webp" alt="" /></div>
                             <div>
