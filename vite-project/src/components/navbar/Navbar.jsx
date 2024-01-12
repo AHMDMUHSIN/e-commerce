@@ -144,6 +144,7 @@ theme: "light",
 <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false"  id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div className="offcanvas-header">
     <div className='offcanvas-header2'>
+    
         <div className='userlogo'><CiUser /></div>
         <div className='userlogotext' ><Link className='link5' >{name} </Link></div>
         <div className='userlogotext' ><Link className='link5' > </Link></div>
@@ -187,22 +188,6 @@ pauseOnHover
 theme="light"
 				
 				/></div>)}
-  
-   {/* <div onClick={logoutAdmin} className='offcanvas-body-content'><span ><CiLogout /> </span>Log out</div>
-   <ToastContainer 
-				
-				position="top-right"
-autoClose={1500}
-hideProgressBar
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-				
-				/> */}
   </div>
 </div>
 
@@ -211,8 +196,11 @@ theme="light"
 
    <div className='snitchlogo'><Link to={`/`}><img src="../download.png" alt="" /></Link></div>
    <div className='homeicons'>
+
+    {id === ""?( <div>  <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
+  </div>):("")}
     
-    <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div>
+    {/* <div><Link className='link5' to={`/userlogin`}><CiUser /></Link></div> */}
     <div><CiSearch /></div>
     
 
