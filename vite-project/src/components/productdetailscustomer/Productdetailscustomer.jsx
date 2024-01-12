@@ -112,7 +112,7 @@ theme: "light",
         }
     
       };
-      // const isInCart = cartItems.some((data) => data.prod_id === getProducts._id);
+     
     
       useEffect(() => {
         getwishlistPrdctDetails();
