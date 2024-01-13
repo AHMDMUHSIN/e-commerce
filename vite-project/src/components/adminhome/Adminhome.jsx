@@ -33,7 +33,7 @@ const Adminhome = () => {
    const [user, setUser] = useState("");
    const navigate = useNavigate();
   
- ////////// DISPLAY ADMIN NAME ///////
+ ////////// DISPLAY ADMIN NAME //////
 
    const checkLocalStorage = async () => {
       try {
