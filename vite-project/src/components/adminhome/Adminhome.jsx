@@ -68,7 +68,7 @@ const Adminhome = () => {
 
    
 
-/////////// DISPLAY CATEGORY /////
+////////// DISPLAY CATEGORY /////
 
     const [getCate,setCategory]=useState([])
     const getCategory=async()=>{
