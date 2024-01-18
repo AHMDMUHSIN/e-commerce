@@ -1,7 +1,7 @@
 import React,{ useEffect, useState } from 'react'
 import './cart.scss'
 import {  useParams } from 'react-router-dom'
-import { useNavigate,Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar  from '../navbar/Navbar';
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,7 +21,7 @@ theme: "light",
   })
 
     const {id}=useParams()
-    const navigate=useNavigate()
+    
     const [totalPrice,setTotalPrice]=useState(0)
     const [getPrdct,setProdct]=useState([])
    
@@ -63,7 +63,7 @@ theme: "light",
           // console.log(res.data);
           await axios.post(`http://localhost:3005/snitch/placeOrder/${id}`);
           success(setTimeout(()=>{
-            // window.location.reload() 
+            window.location.reload() 
         },1500));
           
          
