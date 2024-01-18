@@ -60,7 +60,7 @@ theme: "light",
       if (userConfirmed) {
         try {
   
-          // console.log(res.data);
+         
           await axios.post(`http://localhost:3005/snitch/placeOrder/${id}`);
           success(setTimeout(()=>{
             window.location.reload() 
