@@ -6,6 +6,7 @@ import product_schema from './product.model.js'
 import customer_schema from './customer.model.js'
 import cart_schema from './cart.model.js'
 import wishlist_schema  from './whishlist.model.js'
+import myOrder_schema from './myOrder.model.js'
 
 
  
@@ -376,4 +377,36 @@ export async function editQuantity(req, res) {
   }
 }
 
+//////////////////////PLACE ORDER////////
 
+
+export async function placeOrder(req, res) {
+  try {
+    const { id } = req.params;
+    let cart = await cart_schema.find({ cust_id: id });
+    console.log(cart);
+    let s = "";
+
+    const stockeResult = cart.map((dt) =>
+      product_schema.updateOne({ _id: dt.prod_id },{ $inc: { [`stock.${dt.size}`]: -(dt.quantity) } }));
+
+    await Promise.all(stockeResult);
+    console.log("Stocks updated");
+
+    const orderCreationPromises = cart.map(async (item) => {
+      const order = await myOrder_schema.create({ ...item });
+      return order;
+    });
+
+    const orders = await Promise.all(orderCreationPromises);
+    console.log("Orders created");
+
+    await cart_schema.deleteMany({ cust_id: id });
+    console.log("Cart items deleted");
+
+    res.status(200).send("Order placed successfully");
+  } catch (error) {
+    console.error("Error in placeOrder:", error);
+    res.status(500).send(error.message || "Internal Server Error");
+  }
+}

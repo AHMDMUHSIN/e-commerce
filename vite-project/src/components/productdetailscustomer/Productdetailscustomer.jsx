@@ -5,24 +5,18 @@ import { CiHeart } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import './productdetailscustomer.scss'
 import Navbar  from '../navbar/Navbar'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+
+
+
+
 
 const Productdetailscustomer = () => {
 
+ 
+
   const [loading, setLoading] = useState(true);
 
-  const success = () =>
-  toast.success("Product Added To Cart",{
-    position: "top-right",
-autoClose: 1500,
-hideProgressBar: true,
-closeOnClick: true,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "light",
-  })
+ 
 
 
     
@@ -139,6 +133,7 @@ theme: "light",
     }
 
     const addToCart = async () => {
+      
         try {
             if (!Size) {
                 alert("Please select the size");
@@ -147,9 +142,14 @@ theme: "light",
           const res = await axios.post("http://localhost:3005/snitch/addToCart", {...getProducts,size:Size,cust_id:userid,quantity:1,prod_id:getProducts._id});
           console.log(res.data);
           if(res){
-            success(setTimeout(()=>{
-              window.location.reload();
-          },1500));
+
+            alert("Added To cart")
+             window.location.reload();
+           
+            // toast('Here is your toast.')
+          //   success(setTimeout(()=>{
+          //     window.location.reload();
+          // },1500));
           
           }else{
             alert("Error adding product to cart. Please try again.")
@@ -175,6 +175,8 @@ theme: "light",
             alert("Error adding product to Wishlist. Please try again.");
         }
       };
+     
+
      
   
   return (
@@ -243,10 +245,10 @@ theme: "light",
 
                        <select onChange={selectSize} className='select2' name="size" id="cars">
   <option value="">Select size</option>
-  <option value="S">S</option>
-  <option value="M">M</option>
-  <option value="L">L</option>
-  <option value="XL">XL</option>
+  <option value="size_S">S</option>
+  <option value="size_M">M</option>
+  <option value="size_L">L</option>
+  <option value="size_XL">XL</option>
 </select>
 
 <div>
@@ -258,21 +260,9 @@ theme: "light",
             ) : (
               
               <div>
-                 <div className='addtocart'><button onClick={addToCart}>ADD TO CART</button> </div>
-                 <ToastContainer 
-				
-				position="top-right"
-autoClose={1500}
-hideProgressBar
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-				
-				/>
+                 <div className='addtocart'><button  onClick={addToCart}>ADD TO CART</button> </div>
+               
+               
 
               </div>
 
@@ -310,6 +300,7 @@ theme="light"
                             <div className='codcheckbtn'><button>check</button></div>
                           </div>
                         </div>
+            
                         
                     </div>  
                 </div>

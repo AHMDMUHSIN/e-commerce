@@ -48,6 +48,7 @@ router.route("/addToCart").post(controller.AddToCart);
 router.route("/getCartProduct/:id").get(controller.getCartProduct);
 router.route("/delCartProduct/:id").delete(controller.delCartProduct);
 router.route("/delAlltProduct/:id").delete(controller.deleteAllProducts);
+router.route("/placeOrder/:id").post(controller.placeOrder);
 
 /////////////wishlist//////////
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './home.css'
 import Navbar from '../navbar/Navbar';
+// import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -20,7 +21,7 @@ const Home = () => {
 
  
 
-
+  // const notify = () => toast('Here is your toast.');
 
 return (
     <div>
@@ -113,8 +114,11 @@ return (
 
 </div>
 
-
-
+{/* //////////////////// */}
+{/* <div>
+      <button onClick={notify}>Make me a toast</button>
+      <Toaster />
+    </div> */}
 {/* //////////////// */}
 
 <div className='catogory2'>Casual Shirts</div>

@@ -4,10 +4,21 @@ import {  useParams } from 'react-router-dom'
 import { useNavigate,Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar  from '../navbar/Navbar';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 const Cart = () => {
 
-
+  const success = () =>
+  toast.success("Order Placed",{
+    position: "top-right",
+autoClose: 1500,
+hideProgressBar: true,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "light",
+  })
 
     const {id}=useParams()
     const navigate=useNavigate()
@@ -42,21 +53,25 @@ const Cart = () => {
       getPrdctDetails()
     },[])
 
+
     const BuyNow = async (e) => {
-        e.preventDefault();
-        const userConfirmed = window.confirm("Are you sure you want to proceed to checkout and delete all products?");
-        if (userConfirmed) {
-          try {
-            // Delete all products with the same cust_id
-            await axios.delete(`http://localhost:3005/snitch/delAlltProduct/${id}`);
-            alert("Order Placed");
-            navigate("/")
-          } catch (error) {
-            console.error("Error deleting products:", error);
-            // alert("An error occurred while deleting products");
-          }
+      e.preventDefault();
+      const userConfirmed = window.confirm("Are you sure you want to proceed to checkout?");
+      if (userConfirmed) {
+        try {
+  
+          // console.log(res.data);
+          await axios.post(`http://localhost:3005/snitch/placeOrder/${id}`);
+          success(setTimeout(()=>{
+            // window.location.reload() 
+        },1500));
+          
+         
+        } catch (error) {
+          console.error("Error deleting products:", error);
         }
-      };
+      }
+    };
 
       const delCartPrdct = async (id) => {
         const userConfirmed = window.confirm("Are you sure you want to delete this product from the cart?");
@@ -66,6 +81,7 @@ const Cart = () => {
             console.log(res.data);
             if (res) {
               alert("Product deleted");
+              
             } else {
               alert("Product not deleted");
             }
@@ -179,7 +195,31 @@ const Cart = () => {
 </div></div>)} 
       
 
-{getPrdct==""?(""):(<div className='removecart2'><button onClick={BuyNow}>Place order</button></div>)}
+{getPrdct==""?(""):(<div className='removecart2'><button onClick={BuyNow}>Place order</button>
+<ToastContainer 
+				
+				position="top-right"
+autoClose={1500}
+hideProgressBar
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+				
+				/>
+
+
+
+</div>
+
+
+
+
+
+)}
 
 
 

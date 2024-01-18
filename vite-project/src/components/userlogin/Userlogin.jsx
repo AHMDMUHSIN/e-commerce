@@ -112,7 +112,7 @@ theme: "light",
 
 
 
-   <div className='snitchlogo'><img src="../../../public/download.png" alt="" /></div>
+   <div className='snitchlogo'><img src="../download.png" alt="" /></div>
    <div className='homeicons'>
     
     <div><CiUser /></div>

@@ -6,10 +6,10 @@ const product_schema=new mongoose.Schema({
     price:{type:String},
     stock:{
         
-        size_S:{type:String},
-        size_M:{type:String},
-        size_L:{type:String},
-        size_XL:{type:String},
+        size_S:{type:Number},
+        size_M:{type:Number},
+        size_L:{type:Number},
+        size_XL:{type:Number},
     },
   
     banner:{type:String},
