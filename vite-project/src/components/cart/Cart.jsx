@@ -182,10 +182,7 @@ theme: "light",
 <div className='total2'>RS . 89</div>
 </div></div>)}
 
-{/* <div className='totalmain2'>
-<div className='total2'>Estimated Delivery Fee </div>
-<div className='total2'>RS . 89</div>
-</div> */}
+
 
 <div className='cartheadbarder3'></div>
 
