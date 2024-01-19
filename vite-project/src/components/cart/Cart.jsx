@@ -153,23 +153,7 @@ theme: "light",
   
      
 
-  {/* {getPrdct==""?(""):(<div>
-<div className='totalmain2'>
-<div className='total'>total </div>
-<div className='total2'>RS . {totalPrice ? totalPrice : 0}</div>
-</div>
 
-<div className='totalmain2'>
-<div className='total2'>Estimated Delivery Fee </div>
-<div className='total2'>RS . 89</div>
-</div>
-
-<div className='cartheadbarder3'></div>
-
-<div className='totalmain2'>
-<div className='total2'>subtotal</div>
-<div className='total2'>RS . {totalPrice ? totalPrice + 89 : 89}</div>
-</div></div>)}    */}
 
 {getPrdct==""?(""):(<div>
 <div className='totalmain2'>
