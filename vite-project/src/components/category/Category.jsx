@@ -59,7 +59,7 @@ const Products = () => {
 
   return (
     <div >
-        <div className='cmain'>
+        <div className='cmain'> 
 
 <div className="modal1">
 <form className="form">
