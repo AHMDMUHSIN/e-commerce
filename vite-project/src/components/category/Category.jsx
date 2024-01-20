@@ -79,7 +79,7 @@ const Products = () => {
      
     </div>
  
-  </div>
+  </div>  
     <button onClick={addData} className="purchase--btn">Add</button>
     <ToastContainer 
 				
