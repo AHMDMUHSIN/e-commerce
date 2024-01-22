@@ -176,7 +176,10 @@ const Adminhome = () => {
                  <div className='sales'><FcPositiveDynamic /></div>
                  <div>sales</div>
               </div>
-             
+              <div className='cards'>
+                 <div className='orders'><FcComboChart /></div>
+                 <div>orders</div>
+              </div>
              <Link to={`/category`} className='link5'>
              <div className='cards'>
               <div className='catogory'><FcTimeline /></div>
