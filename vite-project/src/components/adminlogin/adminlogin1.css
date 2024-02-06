@@ -63,13 +63,13 @@
     margin-top: 20px;
     
 }
-/* .link2{
+.link2{
     color: black;
     text-decoration: none;
     font-family:'Julius Sans One', sans-serif ;
     font-size: 10px;
     font-weight: 700;
-} */
+}
 .link2:hover{
     color: black;
 }
