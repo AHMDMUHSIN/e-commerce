@@ -180,7 +180,7 @@
 	word-spacing: 15px;
 	font-weight: 500;
 }
-/* .cmain {
+.cmain {
     
 	display: flex;
 	align-items: center;
@@ -188,7 +188,7 @@
 	flex-direction: column;
 	min-height: 100vh;
 	margin: 0;
-} */
+}
 @media (min-width:300px) and (max-width:576px){
 
 	.modal1{
