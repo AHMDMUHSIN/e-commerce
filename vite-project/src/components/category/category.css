@@ -111,11 +111,11 @@
 	font-family: 'Julius Sans One', sans-serif;
   }
   
-  .input_field:focus {
+  /* .input_field:focus {
 	border: 1px solid transparent;
 	box-shadow: 0px 0px 0px 2px #242424;
 	background-color: transparent;
-  }
+  } */
   .input_field2 {
 	width: auto;
 	height: 90px;
