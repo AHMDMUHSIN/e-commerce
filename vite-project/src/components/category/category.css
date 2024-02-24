@@ -99,7 +99,7 @@
 	font-family: 'Julius Sans One', sans-serif;
   }
   
-  .input_field {
+  /* .input_field {
 	width: auto;
 	height: 40px;
 	padding: 0 0 0 16px;
@@ -109,7 +109,7 @@
 	border: 1px solid #e5e5e500;
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
 	font-family: 'Julius Sans One', sans-serif;
-  }
+  } */
   
   .input_field:focus {
 	border: 1px solid transparent;
