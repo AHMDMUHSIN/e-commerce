@@ -73,11 +73,11 @@ const Products = () => {
       <label  className="input_label">Category Name</label>
       <input id="password_field" className="input_field" type="text" onChange={getData} name='categoryname' title="Inpit title" placeholder=""/>
     </div>
-    {/* <div className="input_container">
+    <div className="input_container">
       <label  className="input_label">Description</label>
       <textarea className="input_field2"  id="" cols="30" name='description'  onChange={getData} rows="10"></textarea>
      
-    </div> */}
+    </div>
  
   </div>  
     <button onClick={addData} className="purchase--btn">Add</button>
