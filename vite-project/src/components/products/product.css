@@ -7,12 +7,12 @@
 	border-radius: 26px;
   }
   
-  /* .form {
+  .form {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 	padding: 20px;
-  } */
+  }
   
   .payment--options {
 	width: calc(100% - 40px);
