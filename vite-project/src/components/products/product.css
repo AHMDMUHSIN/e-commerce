@@ -14,13 +14,13 @@
 	padding: 20px;
   }
   
-  .payment--options {
+  /* .payment--options {
 	width: calc(100% - 40px);
 	display: grid;
 	grid-template-columns: 33% 34% 33%;
 	gap: 20px;
 	padding: 10px;
-  }
+  } */
   
   .payment--options button {
 	height: 55px;
