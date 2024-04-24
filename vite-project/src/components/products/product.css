@@ -35,10 +35,10 @@
 	height: 18px;
   }
   
-  .payment--options button:last-child svg {
+  /* .payment--options button:last-child svg {
 	height: 22px;
   }
-  
+   */
   .separator {
 	width: calc(100% - 20px);
 	display: grid;
