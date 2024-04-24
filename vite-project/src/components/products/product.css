@@ -48,14 +48,14 @@
 	margin: 0 10px;
   }
   
-  .separator > p {
+  /* .separator > p {
 	word-break: keep-all;
 	display: block;
 	text-align: center;
 	font-weight: 600;
 	font-size: 11px;
 	margin: auto;
-  }
+  } */
   
   .separator .line {
 	display: inline-block;
