@@ -159,9 +159,9 @@
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
   }
   
-  /* .purchase--btn:hover {
+  .purchase--btn:hover {
 	box-shadow: 0px 0px 0px 2px #FFFFFF, 0px 0px 0px 4px #0000003a;
-  } */
+  }
   
   /* Reset input number styles */
    .input_field::-webkit-outer-spin-button,
