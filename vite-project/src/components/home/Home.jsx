@@ -73,7 +73,7 @@ return (
 
 {/* /////////////////////// */}
 
-<div id='newarrivals' className='catogory2'>New arrivals</div>
+{/* <div id='newarrivals' className='catogory2'>New arrivals</div> */}
 <div className="products-customer">
 
 
