@@ -263,7 +263,7 @@ return (
 
  </div>
 
- <div className='copyright'>© 2023 SNITCH | All Rights Reserved</div>
+ {/* <div className='copyright'>© 2023 SNITCH | All Rights Reserved</div> */}
 
 
  
