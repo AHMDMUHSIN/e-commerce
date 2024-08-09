@@ -183,7 +183,7 @@ return (
      <div className='productsizesub'>S</div>
      <div className='productsizesub'>M</div>
      <div className='productsizesub'>L</div>
-     <div className='productsizesub'>XL</div>
+     {/* <div className='productsizesub'>XL</div> */}
 
    </div>
  </div>
